@@ -4,7 +4,7 @@ A consistent theme for GNU Emacs. The light theme is based on [Material
 colors](https://material.io/) and the dark theme is based on [Nord
 colors](https://www.nordtheme.com/).
 
-The theme is based on a set of six faces:
+The theme is based on a set of six faces (only):
 
 - **Critical face** is for information that requires immediate action.
 
