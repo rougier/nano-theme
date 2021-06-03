@@ -678,7 +678,7 @@ background color that is barely perceptible."
    '(mu4e-footer-face                        ((t (:inherit nano-faded))))
    '(mu4e-forwarded-face                   ((t (:inherit nano-default))))
    '(mu4e-header-face                      ((t (:inherit nano-default))))
-   '(mu4e-header-highlight-face                ((t (:inherit  hl-line))))
+   '(mu4e-header-highlight-face                ((t (:inherit highlight))))
    '(mu4e-header-key-face                   ((t (:inherit nano-strong))))
    '(mu4e-header-marks-face                  ((t (:inherit nano-faded))))
    '(mu4e-header-title-face                 ((t (:inherit nano-strong))))
