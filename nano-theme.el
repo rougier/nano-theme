@@ -28,13 +28,6 @@
 (defgroup nano-dark nil
   "Color palette for dark theme" :group 'nano)
 
-(defcustom nano-layout nil
-  "Whether to use recommended nano layout settings.
-
-Layout setting concerns mostly frame size and margin and is only
-active with 'nano-light and 'nano-dark functions."
-  :type 'boolean :group 'nano)
-
 (defface nano-mono
   '((t (:family "Roboto Mono"
 	:height 140
@@ -204,34 +197,24 @@ background color that is barely perceptible."
 (defface nano-default-i nil
   "Default face inversed." :group nil)
 
-(defun nano-mode ()
-  "Nano theme mode settings (dark & light)"
+(defun nano-setup ()
+  "Nano recommend settings (optional)"
 
-  (when nano-layout
-    (set-frame-parameter nil 'internal-border-width 24)
-    (set-frame-parameter nil 'width 81)
-    (set-frame-parameter nil 'height 45)
-    (set-frame-parameter nil 'left-fringe 0)
-    (set-frame-parameter nil 'right-fringe 0)
-    (set-display-table-slot standard-display-table 'truncation ?…)
-    (set-display-table-slot standard-display-table 'wrap ?—)
-    (if (fboundp 'tool-bar-mode) (tool-bar-mode nil))
-    (tooltip-mode 0)
-    (scroll-bar-mode 0)
-    (menu-bar-mode 0)
-    (setq window-divider-default-right-width 24)
-    (setq window-divider-default-places 'right-only)
-    (window-divider-mode 1))
-  
-  (setq widget-image-enable nil)
-  (setq x-underline-at-descent-line t)
-  (setq-default indent-tabs-mode nil)
-  
-  (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
-                        " *Minibuf-1*" " *Echo Area 1*"))
-    (when (get-buffer buffer)
-      (with-current-buffer buffer
-        (face-remap-add-relative 'default 'nano-faded)))))
+  (interactive)
+  (set-frame-parameter nil 'internal-border-width 24)
+  (set-frame-parameter nil 'width 81)
+  (set-frame-parameter nil 'height 45)
+  (set-frame-parameter nil 'left-fringe 0)
+  (set-frame-parameter nil 'right-fringe 0)
+  (if (fboundp 'tool-bar-mode) (tool-bar-mode nil))
+  (tooltip-mode 0)
+  (scroll-bar-mode 0)
+  (menu-bar-mode 0)
+  (setq window-divider-default-right-width 24)
+  (setq window-divider-default-places 'right-only)
+  (window-divider-mode 1)
+  (set-display-table-slot standard-display-table 'truncation ?…)
+  (set-display-table-slot standard-display-table 'wrap ?—))
 
   
 (defun nano-light ()
@@ -239,13 +222,19 @@ background color that is barely perceptible."
   
   (interactive)
   (message "Entering nano light mode")
+  (setq widget-image-enable nil)
+  (setq x-underline-at-descent-line t)
   (set-foreground-color nano-light-foreground)
   (set-face-background 'internal-border nano-light-background (selected-frame))
   (custom-set-variables '(frame-background-mode 'light))
   (load-theme 'nano t)
   (set-frame-parameter nil 'background-mode 'light)
-  (nano-mode)
-  (frame-set-background-mode (selected-frame) t )
+  (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
+                        " *Minibuf-1*" " *Echo Area 1*"))
+    (when (get-buffer buffer)
+      (with-current-buffer buffer
+        (face-remap-add-relative 'default 'nano-faded))))
+  (frame-set-background-mode (selected-frame))
   (set-background-color nano-light-background))
 
 
@@ -254,12 +243,18 @@ background color that is barely perceptible."
   
   (interactive)
   (message "Entering nano dark mode")
+  (setq widget-image-enable nil)
+  (setq x-underline-at-descent-line t)
   (set-foreground-color nano-dark-foreground)
   (set-face-background 'internal-border nano-dark-background (selected-frame))
   (custom-set-variables '(frame-background-mode 'dark))
   (load-theme 'nano t)
   (set-frame-parameter nil 'background-mode 'dark)
-  (nano-mode)
+  (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
+                        " *Minibuf-1*" " *Echo Area 1*"))
+    (when (get-buffer buffer)
+      (with-current-buffer buffer
+        (face-remap-add-relative 'default 'nano-faded))))
   (frame-set-background-mode (selected-frame))
   (set-background-color nano-dark-background))
 
