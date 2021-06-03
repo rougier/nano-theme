@@ -28,7 +28,7 @@
 (defgroup nano-dark nil
   "Color palette for dark theme" :group 'nano)
 
-(defcustom nano-layout t
+(defcustom nano-layout nil
   "Whether to use recommended nano layout settings.
 
 Layout setting concerns mostly frame size and margin and is only
