@@ -54,6 +54,17 @@ Install with [straight.el](https://github.com/raxod502/straight.el):
                                    :repo "rougier/nano-theme"))
 ```
 
+... or install with [`quelpa`](https://github.com/quelpa/quelpa):
+
+```emacs-lisp
+(use-package nano-theme
+  :ensure nil
+  :defer t
+  :quelpa (nano-theme
+           :fetcher github
+           :repo "rougier/nano-theme"))
+```
+
 ### Usage
 
 Load theme directly: `M-x: (load-theme 'nano t)`  
