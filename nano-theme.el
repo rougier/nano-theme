@@ -1,3 +1,5 @@
+;;; nano-theme.el --- A consistent theme for GNU Emacs  -*- coding: utf-8 -*-
+
 ;; ---------------------------------------------------------------------
 ;; GNU Emacs / N Λ N O theme
 ;; Copyright (C) 2021 - Nicolas P. Rougier
