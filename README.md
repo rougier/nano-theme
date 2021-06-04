@@ -51,7 +51,7 @@ Install with [straight.el](https://github.com/raxod502/straight.el):
 
 ```
 (straight-use-package '(nano-theme :type git :host github
-                                   :repo "rougier/nano-theme")
+                                   :repo "rougier/nano-theme"))
 ```
 
 ### Usage
