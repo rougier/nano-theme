@@ -44,10 +44,27 @@ The theme is based on a set of six faces (only):
   > information and this can be made by setting a very light
   > background color that is barely perceptible.
 
+
+### Installation
+
+Install with [straight.el](https://github.com/raxod502/straight.el):
+
+```
+(straight-use-package '(nano-theme :type git :host github
+                                   :repo "rougier/nano-theme")
+```
+
 ### Usage
 
-You can save the file in you `.emacs.d` directory and then type `M-x:
-(load-theme 'nano)` or `M-x: (nano-light)` or `M-x: (nano-dark)`
+Load theme directly: `M-x: (load-theme 'nano t)`  
+
+Alternatively, you can type:
+- `M-x: (nano-light)` for light theme
+- `M-x: (nano-dark)` for dark theme
+
+If you want the same aspect as in the screenshots, you can also use
+`M-x: (nano-setup)` 
+
 
 ### Screenshots
 
