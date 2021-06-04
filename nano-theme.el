@@ -375,6 +375,15 @@ background color that is barely perceptible."
 					:color ,nano-dark-subtle
 					:style nil)))))
 
+   `(header-line ((,light (:foreground ,nano-light-foreground
+                           :background ,nano-light-subtle
+                           :inherit nil
+                           :box nil))
+		  (,dark  (:foreground ,nano-dark-foreground
+		           :background ,nano-dark-subtle
+                           :inherit nil
+                           :box nil))))
+
    ;; --- Structural ---------------------------------------------------------
    '(bold                        ((t (:inherit nano-strong))))
    '(italic                      ((t (:slant italic))))
