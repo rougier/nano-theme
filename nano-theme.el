@@ -1,8 +1,7 @@
-;;; nano-theme.el --- A consistent theme for GNU Emacs  -*- coding: utf-8 -*-
-
+;;; nano-theme.el --- NΛNO theme -*- lexical-binding: t -*-
 ;; ---------------------------------------------------------------------
-;; GNU Emacs / N Λ N O theme
-;; Copyright (C) 2021 - Nicolas P. Rougier
+;; GNU Emacs / NΛNO theme
+;; Copyright (C) 2020-2021 - NΛNO developers 
 ;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -19,30 +18,34 @@
 ;; ---------------------------------------------------------------------
 
 (deftheme nano
-  "N Λ N O theme")
+  "NΛNO Theme")
 
 (defgroup nano nil
-  "N Λ N O theme.")
+  "NΛNO")
 
 (defgroup nano-light nil
-  "Color palette for light theme" :group 'nano)
+  "Light theme color palette" :group 'nano)
 
 (defgroup nano-dark nil
-  "Color palette for dark theme" :group 'nano)
+  "Dark theme color palette" :group 'nano)
+
+(defgroup nano-fonts nil
+  "Dark & Light theme fonts" :group 'nano)
+
 
 (defface nano-mono
   '((t (:family "Roboto Mono"
 	:height 140
 	:weight light)))
   "Default monospaced font (Roboto Mono Light, 14pt)."
-  :group 'nano)
+  :group 'nano-fonts)
 
 (defface nano-mono-alt
   '((t (:family "Fira Code"
 	:height 140
 	:weight light)))
   "Alternative monospaced font (Fira Code Light, 14pt)."
-  :group 'nano)
+  :group 'nano-fonts)
 
 
 (defface nano-sans
@@ -50,14 +53,14 @@
 	:height 140
 	:weight light)))
   "Default proportional sans font (Roboto Light, 14pt)."
-  :group 'nano)
+  :group 'nano-fonts)
 
 (defface nano-serif
   '((t (:family "Roboto Slab"
 	:height 140
 	:weight light)))
   "Default proportional serif font (Roboto Slab Light, 14pt)."
-  :group 'nano)
+  :group 'nano-fonts)
 
 (defcustom nano-light-foreground "#37474F" ;; Blue Grey / L800
   "Default foreground color"
@@ -279,11 +282,12 @@ background color that is barely perceptible."
 	      (push tag properties)))))
       properties)))
 
-;; (custom-theme-set-faces 'nano
-;;   '(bold ((t (:inherit nano-strong)))))
-;; 			  
-;; (custom-theme-set-faces 'nano
-;;   `(bold ((t ,(inherit 'nano-strong)))))
+(custom-set-faces 
+ `(bold ((t ,(inherit 'nano-strong)))))
+
+(custom-theme-set-faces 'nano
+ `(bold ((t ,(inherit 'nano-popout) t))))
+
 
 
 ;; ---  Theme ----------------------------------------------------------
@@ -327,8 +331,8 @@ background color that is barely perceptible."
                     (,dark  (:foreground ,nano-dark-background
                              :background ,nano-dark-faded))))
    
-   `(nano-default ((,light  (:inherit default))
-		   (,dark  (:inherit default))))
+   `(nano-default ((,light  (:foreground ,nano-light-foreground))
+		   (,dark  (:foreground ,nano-dark-foreground))))
 
    `(nano-default-i ((,light (:foreground ,nano-light-background
                               :background ,nano-light-foreground))
@@ -371,9 +375,11 @@ background color that is barely perceptible."
                              :background ,nano-dark-critical))))
 
    `(nano-critical-i ((,light (:foreground ,nano-light-critical
-                               :background ,nano-light-background))
+			       ;; :background ,nano-light-background
+				))
                       (,dark  (:foreground ,nano-dark-critical
-                               :background ,nano-dark-background))))
+			       ;; :background ,nano-dark-background
+			        ))))
    
    ;; --- Header & mode line -------------------------------------------
    
