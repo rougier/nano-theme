@@ -16,12 +16,13 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;; ---------------------------------------------------------------------
+(require 'disp-table)
 
 (deftheme nano
-  "NΛNO Theme")
+  "N Λ N O Theme")
 
 (defgroup nano nil
-  "NΛNO")
+  "N Λ N O")
 
 (defgroup nano-light nil
   "Light theme color palette" :group 'nano)
@@ -32,6 +33,9 @@
 (defgroup nano-fonts nil
   "Dark & Light theme fonts" :group 'nano)
 
+(defcustom nano-fonts-use nil
+  "Whether to use font stack"
+  :type 'boolean :group 'nano-fonts)
 
 (defface nano-mono
   '((t (:family "Roboto Mono"
@@ -46,7 +50,6 @@
 	:weight light)))
   "Alternative monospaced font (Fira Code Light, 14pt)."
   :group 'nano-fonts)
-
 
 (defface nano-sans
   '((t (:family "Roboto"
@@ -203,31 +206,108 @@ background color that is barely perceptible."
   "Default face inversed." :group nil)
 
 (defun nano-setup ()
-  "Nano recommend settings (optional)"
+  "Defaults settings for nano (optional)"
 
-  (interactive)
-  (set-frame-parameter nil 'internal-border-width 24)
-  (set-frame-parameter nil 'width 81)
-  (set-frame-parameter nil 'height 45)
-  (set-frame-parameter nil 'left-fringe 0)
-  (set-frame-parameter nil 'right-fringe 0)
-  (if (fboundp 'tool-bar-mode) (tool-bar-mode nil))
-  (tooltip-mode 0)
-  (scroll-bar-mode 0)
-  (menu-bar-mode 0)
+  ;; Use nano fonts
+  (setq nano-fonts-use t)
+  
+  ;; No startup  screen
+  (setq inhibit-startup-screen t)
+
+  ;; No startup message
+  (setq inhibit-startup-message t)
+  (setq inhibit-startup-echo-area-message t)
+
+  ;; No message in scratch buffer
+  (setq initial-scratch-message nil)
+
+  ;; Initial buffer
+  (setq initial-buffer-choice nil)
+
+  ;; No frame title
+  (setq frame-title-format nil)
+
+  ;; No file dialog
+  (setq use-file-dialog nil)
+
+  ;; No dialog box
+  (setq use-dialog-box nil)
+
+  ;; No popup windows
+  (setq pop-up-windows nil)
+
+  ;; No empty line indicators
+  (setq indicate-empty-lines nil)
+
+  ;; No cursor in inactive windows
+  (setq cursor-in-non-selected-windows nil)
+
+  ;; Text mode is initial mode
+  (setq initial-major-mode 'text-mode)
+
+  ;; Text mode is default major mode
+  (setq default-major-mode 'text-mode)
+
+  ;; Moderate font lock
+  (setq font-lock-maximum-decoration nil)
+
+  ;; No limit on font lock
+  (setq font-lock-maximum-size nil)
+
+  ;; No line break space points
+  (setq auto-fill-mode nil)
+
+  ;; Fill column at 80
+  (setq fill-column 80)
+
+  ;; Bar cursor
+  (setq-default cursor-type '(hbar .  2))
+  (setq-default cursor-in-non-selected-windows nil)
+  (setq blink-cursor-mode nil)
+
+  ;; No scroll bars
+  (if (fboundp 'scroll-bar-mode)
+      (scroll-bar-mode -1))
+
+  ;; No toolbar
+  (if (fboundp 'tool-bar-mode)
+      (tool-bar-mode nil))
+
+  ;; Default frame settings
+  (setq default-frame-alist
+        (append (list
+	             '(min-height . 1)  '(height . 45)
+	             '(min-width  . 1)  '(width  . 81)
+                 '(vertical-scroll-bars . nil)
+                 '(internal-border-width . 24)
+                 '(left-fringe . 0)
+                 '(right-fringe . 0)
+                 '(tool-bar-lines . 0)
+                 '(menu-bar-lines . 0))))
+
+  ;; Line spacing (in pixels)
+  (setq line-spacing 0)
+  
+  ;; Vertical window divider
   (setq window-divider-default-right-width 24)
   (setq window-divider-default-places 'right-only)
   (window-divider-mode 1)
+
+  ;; Nicer glyphs for continuation and wrap 
   (set-display-table-slot standard-display-table
-			  'truncation (make-glyph-code ?… 'nano-faded))
+			              'truncation (make-glyph-code ?… 'nano-faded))
   (set-display-table-slot standard-display-table
-			  'wrap (make-glyph-code ?… 'nano-faded)))
-  
+			              'wrap (make-glyph-code ?… 'nano-faded))
+
+  ;; Nerd font for glyph icons
+  (set-fontset-font t '(#xe000 . #xffdd)
+                    (font-spec :name "RobotoMono Nerd Font Mono")))
+
+
 (defun nano-light ()
   "Nano theme light"
   
   (interactive)
-  (message "Entering nano light mode")
   (setq widget-image-enable nil)
   (setq x-underline-at-descent-line t)
   (set-foreground-color nano-light-foreground)
@@ -248,7 +328,6 @@ background color that is barely perceptible."
   "Nano theme dark"
   
   (interactive)
-  (message "Entering nano dark mode")
   (setq widget-image-enable nil)
   (setq x-underline-at-descent-line t)
   (set-foreground-color nano-dark-foreground)
@@ -265,29 +344,22 @@ background color that is barely perceptible."
   (set-background-color nano-dark-background))
 
 
-(defun inherit (face &optional inherit)
-  "Extract face properties as a property list"
+;; (defun inherit (face &optional inherit)
+;;   "Extract face properties as a property list"
   
-  (let ((tags (list :family :foundry :width :height :weight :slant :underline
-	            :overline :strike-through :box :inverse-video :foreground
-		    :background :stipple :extend :inherit))
-	(properties))
-    (if inherit
-	`(:inherit ,face)
-      (progn
-	(dolist (tag tags)
-	  (let ((attribute (face-attribute face tag)))
-	    (when (not (eq attribute 'unspecified))
-	      (push attribute properties)
-	      (push tag properties)))))
-      properties)))
-
-(custom-set-faces 
- `(bold ((t ,(inherit 'nano-strong)))))
-
-(custom-theme-set-faces 'nano
- `(bold ((t ,(inherit 'nano-popout) t))))
-
+;;   (let ((tags (list :family :foundry :width :height :weight :slant :underline
+;; 	            :overline :strike-through :box :inverse-video :foreground
+;; 		    :background :stipple :extend :inherit))
+;; 	(properties))
+;;     (if inherit
+;; 	`(:inherit ,face)
+;;       (progn
+;; 	(dolist (tag tags)
+;; 	  (let ((attribute (face-attribute face tag)))
+;; 	    (when (not (eq attribute 'unspecified))
+;; 	      (push attribute properties)
+;; 	      (push tag properties)))))
+;;       properties)))
 
 
 ;; ---  Theme ----------------------------------------------------------
@@ -296,19 +368,39 @@ background color that is barely perceptible."
       (tty-light '((type tty) (background light)))
       (tty-dark  '((type tty) (background dark))))
 
+  ;; Enforce nano fonts
+  (if nano-fonts-use
+      (custom-theme-set-faces
+       'nano
+       `(default ((,light (:foreground ,nano-light-foreground
+                           :weight     ,(face-attribute 'nano-mono :weight)
+		                   :height     ,(face-attribute 'nano-mono :height)
+                           :family     ,(face-attribute 'nano-mono :family)))
+                  (,dark  (:foreground ,nano-dark-foreground
+                           :weight     ,(face-attribute 'nano-mono :weight)
+		                   :height     ,(face-attribute 'nano-mono :height)
+                           :family     ,(face-attribute 'nano-mono :family)))))
+       `(nano-strong ((,light (:weight normal))
+		              (,dark  (:weight normal))))
+       `(variable-pitch  ((t (:weight ,(face-attribute 'nano-sans :weight)
+				              :height ,(face-attribute 'nano-sans :height)
+				              :family ,(face-attribute 'nano-sans :family)))))))
+
+    ;; Enforce nano fonts
+  (if (not nano-fonts-use)
+      (custom-theme-set-faces
+       'nano
+       `(default ((,light (:foreground ,nano-light-foreground))
+                  (,dark  (:foreground ,nano-dark-foreground))))
+       `(nano-strong ((,light (:weight bold))
+		              (,dark  (:weight bold))))))
+
+
+  
   (custom-theme-set-faces
    'nano
    
-   ;; --- Base ---------------------------------------------------------
-   `(default ((,light (:foreground ,nano-light-foreground
-		       :weight     ,(face-attribute 'nano-mono :weight)
-		       :height     ,(face-attribute 'nano-mono :height)
-                       :family     ,(face-attribute 'nano-mono :family)))
-              (,dark  (:foreground ,nano-dark-foreground
-		       :weight     ,(face-attribute 'nano-mono :weight)
-		       :height     ,(face-attribute 'nano-mono :height)
-                       :family     ,(face-attribute 'nano-mono :family)))))
-   
+   ;; --- Base ---------------------------------------------------------   
    `(cursor ((,light (:foreground ,nano-light-background
                       :background ,nano-light-foreground))
              (,dark  (:foreground ,nano-dark-background
@@ -332,7 +424,7 @@ background color that is barely perceptible."
                              :background ,nano-dark-faded))))
    
    `(nano-default ((,light  (:foreground ,nano-light-foreground))
-		   (,dark  (:foreground ,nano-dark-foreground))))
+		           (,dark  (:foreground ,nano-dark-foreground))))
 
    `(nano-default-i ((,light (:foreground ,nano-light-background
                               :background ,nano-light-foreground))
@@ -349,10 +441,6 @@ background color that is barely perceptible."
                               :background ,nano-dark-salient))))
 
    
-   `(nano-strong ((,light (:foreground ,nano-light-strong
-                           :weight normal))
-		  (,dark  (:foreground ,nano-dark-strong
-                           :weight normal))))
 
    `(nano-strong-i ((,light (:foreground ,nano-light-background
                              :background ,nano-light-strong
@@ -428,9 +516,6 @@ background color that is barely perceptible."
    '(link                        ((t (:inherit nano-salient))))
    '(fixed-pitch                 ((t (:inherit default))))
    '(fixed-pitch-serif           ((t (:inherit default))))
-   `(variable-pitch              ((t (:weight ,(face-attribute 'nano-sans :weight)
-				      :height ,(face-attribute 'nano-sans :height)
-				      :family ,(face-attribute 'nano-sans :family)))))
    
    ;; --- Semantic -----------------------------------------------------
    '(shadow                        ((t (:inherit nano-faded))))
@@ -516,7 +601,21 @@ background color that is barely perceptible."
    '(custom-link                   ((t (:inherit nano-salient))))
    '(custom-variable-obsolete      ((t (:inherit nano-faded))))
 
+   ;; --- Company tooltip ----------------------------------------------
+    '(company-tooltip                      ((t (:inherit nano-subtle))))
+    '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
+    '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
 
+    '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
+    '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
+
+    '(company-tooltip-common               ((t (:inherit nano-strong))))
+    '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
+                                                :weight normal))))
+    '(company-tooltip-annotation           ((t (:inherit nano-default))))
+    '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
+
+   
    ;; --- Buttons ------------------------------------------------------
    `(custom-button
      ((,light (:foreground ,nano-light-faded
@@ -569,6 +668,33 @@ background color that is barely perceptible."
    '(info-title-3                   ((t (:inherit nano-strong))))
    '(info-title-4                   ((t (:inherit nano-strong))))
 
+   ;; --- Helpful ------------------------------------------------------
+   '(helpful-heading                ((t (:inherit nano-strong))))
+
+   ;; --- EPA ----------------------------------------------------------
+   '(epa-field-body                 ((t (:inherit nano-default))))
+   '(epa-field-name                 ((t (:inherit nano-strong))))
+   '(epa-mark                       ((t (:inherit nano-salient))))
+   '(epa-string                     ((t (:inherit nano-popout))))
+   '(epa-validity-disabled          ((t (:inherit nano-faded))))
+   '(epa-validity-high              ((t (:inherit nano-strong))))
+   '(epa-validity-medium            ((t (:inherit nano-default))))
+   '(epa-validity-low               ((t (:inherit nano-faded))))
+
+   ;; --- Popup --------------------------------------------------------
+
+
+   '(popup-face                       ((t (:inherit highlight))))
+   '(popup-isearch-match              ((t (:inherit nano-popout))))
+   '(popup-menu-face                  ((t (:inherit nano-subtle))))
+   '(popup-menu-mouse-face            ((t (:inherit nano-faded-i))))
+   '(popup-menu-selection-face        ((t (:inherit nano-salient-i))))
+   '(popup-menu-summary-face          ((t (:inherit nano-faded))))
+   '(popup-scroll-bar-background-face ((t (:inherit nano-subtle))))
+   '(popup-scroll-bar-foreground-face ((t (:inherit nano-subtle))))
+   '(popup-summary-face               ((t (:inherit nano-faded))))
+   '(popup-tip-face                   ((t (:inherit nano-popout-i))))
+
    ;; --- Diff ---------------------------------------------------------
    '(diff-header                    ((t (:inherit nano-faded))))
    '(diff-file-header               ((t (:inherit nano-strong))))
@@ -576,8 +702,8 @@ background color that is barely perceptible."
    '(diff-removed                   ((t (:inherit nano-faded))))
    '(diff-changed                   ((t (:inherit nano-popout))))
    '(diff-added                     ((t (:inherit nano-salient))))
-   '(diff-refine-added              ((t (:inherit (nano-face-salient
-                                                   nano-face-strong)))))
+   '(diff-refine-added              ((t (:inherit (nano-salient
+                                                   nano-strong)))))
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
 						  :strike-through t))))
@@ -620,8 +746,8 @@ background color that is barely perceptible."
    '(org-agenda-column-dateline     ((t (:inherit nano-faded))))
    '(org-agenda-current-time        ((t (:inherit nano-strong))))
    '(org-agenda-date                ((t (:inherit nano-salient))))
-   '(org-agenda-date-today          ((t (:inherit (nano-face-salient
-                                                   nano-face-strong)))))
+   '(org-agenda-date-today          ((t (:inherit (nano-salient
+                                                   nano-strong)))))
    '(org-agenda-date-weekend        ((t (:inherit nano-faded))))
    '(org-agenda-diary               ((t (:inherit nano-faded))))
    '(org-agenda-dimmed-todo-face    ((t (:inherit nano-faded))))
