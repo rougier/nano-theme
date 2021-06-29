@@ -315,6 +315,15 @@ background color that is barely perceptible."
   (custom-set-variables '(frame-background-mode 'light))
   (load-theme 'nano t)
   (set-frame-parameter nil 'background-mode 'light)
+  (if (assq 'background-color default-frame-alist)
+      (setcdr (assq 'background-color default-frame-alist)
+              nano-light-background)
+    (add-to-list 'default-frame-alist
+                 `(background-color . ,nano-light-background)))
+  (if (assq 'background-mode default-frame-alist)
+      (setcdr (assq 'background-mode default-frame-alist) 'light)
+    (add-to-list 'default-frame-alist '(background-mode . light)))
+
   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
                         " *Minibuf-1*" " *Echo Area 1*"))
     (when (get-buffer buffer)
@@ -335,6 +344,16 @@ background color that is barely perceptible."
   (custom-set-variables '(frame-background-mode 'dark))
   (load-theme 'nano t)
   (set-frame-parameter nil 'background-mode 'dark)
+
+  (if (assq 'background-color default-frame-alist)
+      (setcdr (assq 'background-color default-frame-alist)
+              nano-dark-background)
+    (add-to-list 'default-frame-alist
+                 `(background-color . ,nano-dark-background)))
+  (if (assq 'background-mode default-frame-alist)
+      (setcdr (assq 'background-mode default-frame-alist) 'dark)
+    (add-to-list 'default-frame-alist '(background-mode . dark)))
+
   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
                         " *Minibuf-1*" " *Echo Area 1*"))
     (when (get-buffer buffer)
@@ -508,7 +527,8 @@ background color that is barely perceptible."
    
    ;; --- Structural ---------------------------------------------------
    '(bold                        ((t (:inherit nano-strong))))
-   '(italic                      ((t (:slant italic))))
+   ;; '(italic                      ((t (:slant italic))))
+   '(italic                      ((t (:inherit nano-faded))))
    '(bold-italic                 ((t (:inherit nano-strong))))
    '(region                      ((t (:inherit nano-subtle))))
    '(fringe                      ((t (:inherit (nano-faded)))))
