@@ -26,10 +26,10 @@
 ;;; Commentary:
 ;;
 ;; N Λ N O theme is a consistent theme that comes in two flavors:
-;;  - light theme is based on Material (https://material.io/)
-;;  - the dark theme is based on Nord (https://www.nordtheme.com/).
+;;  - a light theme that is based on Material (https://material.io/)
+;;  - a dark theme that is based on Nord (https://www.nordtheme.com/).
 ;;
-;; The theme is fully defined by a set of (1+6) faces as
+;; A theme is fully defined by a set of (1+6) faces as
 ;; explained in this paper https://arxiv.org/abs/2008.06030:
 ;;
 ;; - Default face is the face for regular information.
@@ -74,17 +74,19 @@
 ;;     information and this can be made by setting a very light
 ;;     background color that is barely perceptible.
 ;;
-;;
+
 ;; Usage example:
 ;;
-;; You can use the theme as a regular theme or you can
-;; (nano-light) / (nano-dark) to isntall the light or dark version.
+;; You can use the theme as a regular theme or you can call
+;; (nano-light) / (nano-dark) explicitely to install the light or dark
+;; version.
 ;; 
-;; Optionally, you can use (nano-setup) to setup default settings.
-;; Be careful since it will modify your configuration.
+;; Optionally, you can use (nano-setup) to setup default settings.  Be
+;; careful since it will modify your configuration and requires
+;; specific fonts.
 ;;
 ;; Recommended font is "Roboto Mono" or "Roboto Mono Nerd" if you want
-;; all the fancy glyphs. See https://www.nerdfonts.com.
+;; to benefit from all the fancy glyphs. See https://www.nerdfonts.com.
 
 ;;; NEWS:
 
