@@ -119,29 +119,29 @@
 
 (defface nano-mono
   '((t (:family "Roboto Mono"
-	:height 140
-	:weight light)))
+        :height 140
+        :weight light)))
   "Default monospaced font (Roboto Mono Light, 14pt)."
   :group 'nano-fonts)
 
 (defface nano-mono-alt
   '((t (:family "Fira Code"
-	:height 140
-	:weight light)))
+        :height 140
+        :weight light)))
   "Alternative monospaced font (Fira Code Light, 14pt)."
   :group 'nano-fonts)
 
 (defface nano-sans
   '((t (:family "Roboto"
-	:height 140
-	:weight light)))
+        :height 140
+        :weight light)))
   "Default proportional sans font (Roboto Light, 14pt)."
   :group 'nano-fonts)
 
 (defface nano-serif
   '((t (:family "Roboto Slab"
-	:height 140
-	:weight light)))
+        :height 140
+        :weight light)))
   "Default proportional serif font (Roboto Slab Light, 14pt)."
   :group 'nano-fonts)
 
@@ -360,8 +360,8 @@ background color that is barely perceptible."
   ;; Default frame settings
   (setq default-frame-alist
         (append (list
-	             '(min-height . 1)  '(height . 45)
-	             '(min-width  . 1)  '(width  . 81)
+                 '(min-height . 1)  '(height . 45)
+                 '(min-width  . 1)  '(width  . 81)
                  '(vertical-scroll-bars . nil)
                  '(internal-border-width . 24)
                  '(left-fringe . 0)
@@ -379,9 +379,9 @@ background color that is barely perceptible."
 
   ;; Nicer glyphs for continuation and wrap 
   (set-display-table-slot standard-display-table
-			              'truncation (make-glyph-code ?… 'nano-faded))
+                          'truncation (make-glyph-code ?… 'nano-faded))
   (set-display-table-slot standard-display-table
-			              'wrap (make-glyph-code ?- 'nano-faded))
+                          'wrap (make-glyph-code ?- 'nano-faded))
 
   ;; Nerd font for glyph icons
   (let ((roboto-nerd (font-spec :name "RobotoMono Nerd Font Mono")))
@@ -453,17 +453,17 @@ background color that is barely perceptible."
 ;;   "Extract face properties as a property list"
   
 ;;   (let ((tags (list :family :foundry :width :height :weight :slant :underline
-;; 	            :overline :strike-through :box :inverse-video :foreground
-;; 		    :background :stipple :extend :inherit))
-;; 	(properties))
+;;                     :overline :strike-through :box :inverse-video :foreground
+;;                     :background :stipple :extend :inherit))
+;;  (properties))
 ;;     (if inherit
-;; 	`(:inherit ,face)
+;;  `(:inherit ,face)
 ;;       (progn
-;; 	(dolist (tag tags)
-;; 	  (let ((attribute (face-attribute face tag)))
-;; 	    (when (not (eq attribute 'unspecified))
-;; 	      (push attribute properties)
-;; 	      (push tag properties)))))
+;;  (dolist (tag tags)
+;;    (let ((attribute (face-attribute face tag)))
+;;     (when (not (eq attribute 'unspecified))
+;;       (push attribute properties)
+;;       (push tag properties)))))
 ;;       properties)))
 
 
@@ -480,17 +480,17 @@ background color that is barely perceptible."
        'nano
        `(default ((,light (:foreground ,nano-light-foreground
                            :weight     ,(face-attribute 'nano-mono :weight)
-		                   :height     ,(face-attribute 'nano-mono :height)
+                           :height     ,(face-attribute 'nano-mono :height)
                            :family     ,(face-attribute 'nano-mono :family)))
                   (,dark  (:foreground ,nano-dark-foreground
                            :weight     ,(face-attribute 'nano-mono :weight)
-		                   :height     ,(face-attribute 'nano-mono :height)
+                           :height     ,(face-attribute 'nano-mono :height)
                            :family     ,(face-attribute 'nano-mono :family)))))
        `(nano-strong ((,light (:weight normal))
-		              (,dark  (:weight normal))))
+                      (,dark  (:weight normal))))
        `(variable-pitch  ((t (:weight ,(face-attribute 'nano-sans :weight)
-				              :height ,(face-attribute 'nano-sans :height)
-				              :family ,(face-attribute 'nano-sans :family)))))))
+                              :height ,(face-attribute 'nano-sans :height)
+                              :family ,(face-attribute 'nano-sans :family)))))))
 
     ;; Enforce nano fonts
   (if (not nano-fonts-use)
@@ -499,7 +499,7 @@ background color that is barely perceptible."
        `(default ((,light (:foreground ,nano-light-foreground))
                   (,dark  (:foreground ,nano-dark-foreground))))
        `(nano-strong ((,light (:weight bold))
-		              (,dark  (:weight bold))))))
+                      (,dark  (:weight bold))))))
 
 
   
@@ -521,13 +521,13 @@ background color that is barely perceptible."
                 (,dark  (:background ,nano-dark-highlight))))
 
    `(nano-subtle ((,light (:background ,nano-light-subtle))
-		  (,dark  (:background ,nano-dark-subtle))))
+                  (,dark  (:background ,nano-dark-subtle))))
 
    `(nano-subtle-i ((,light (:foreground ,nano-light-subtle))
                     (,dark  (:foreground ,nano-dark-subtle))))
    
    `(nano-faded ((,light  (:foreground ,nano-light-faded))
-		 (,dark  (:foreground ,nano-dark-faded))))
+                 (,dark  (:foreground ,nano-dark-faded))))
 
    `(nano-faded-i ((,light (:foreground ,nano-light-background
                             :background ,nano-light-faded))
@@ -535,7 +535,7 @@ background color that is barely perceptible."
                              :background ,nano-dark-faded))))
    
    `(nano-default ((,light  (:foreground ,nano-light-foreground))
-		           (,dark  (:foreground ,nano-dark-foreground))))
+                   (,dark  (:foreground ,nano-dark-foreground))))
 
    `(nano-default-i ((,light (:foreground ,nano-light-background
                               :background ,nano-light-foreground))
@@ -544,7 +544,7 @@ background color that is barely perceptible."
 
    
    `(nano-salient ((,light (:foreground ,nano-light-salient))
-		   (,dark  (:foreground ,nano-dark-salient))))
+                   (,dark  (:foreground ,nano-dark-salient))))
 
    `(nano-salient-i ((,light (:foreground ,nano-light-background
                               :background ,nano-light-salient))
@@ -574,45 +574,45 @@ background color that is barely perceptible."
                              :background ,nano-dark-critical))))
 
    `(nano-critical-i ((,light (:foreground ,nano-light-critical
-			       ;; :background ,nano-light-background
-				))
+                            ;; :background ,nano-light-background
+                                           ))
                       (,dark  (:foreground ,nano-dark-critical
-			       ;; :background ,nano-dark-background
-			        ))))
+                   ;; :background ,nano-dark-background
+                    ))))
    
    ;; --- Header & mode line -------------------------------------------
    
    `(mode-line ((,light (:foreground ,nano-light-background
                          :background ,nano-light-foreground
                          :box (:line-width 3
-			       :color ,nano-light-foreground
-			       :style nil)))
-		(,dark  (:foreground ,nano-dark-foreground
-			 :background ,nano-dark-faded
+                   :color ,nano-light-foreground
+                   :style nil)))
+        (,dark  (:foreground ,nano-dark-foreground
+             :background ,nano-dark-faded
                          :box (:line-width 3
-			       :color ,nano-dark-faded
-			       :style nil)))))
+                   :color ,nano-dark-faded
+                   :style nil)))))
    `(mode-line-highlight ((t (:inherit nano-popout))))
    `(mode-line-buffer-id ((t (:weight regular))))
    `(mode-line-emphasis  ((t (:weight regular))))
-			   
+               
    `(mode-line-inactive ((,light (:foreground ,nano-light-background
                                   :background ,nano-light-faded
                                   :box (:line-width 3
-					:color ,nano-light-faded
-					:style nil)))
-			 (,dark  (:foreground ,nano-dark-faded
+                    :color ,nano-light-faded
+                    :style nil)))
+             (,dark  (:foreground ,nano-dark-faded
                                   :background ,nano-dark-subtle
                                   :box (:line-width 3
-					:color ,nano-dark-subtle
-					:style nil)))))
+                    :color ,nano-dark-subtle
+                    :style nil)))))
 
    `(header-line ((,light (:foreground ,nano-light-foreground
                            :background ,nano-light-subtle
                            :inherit nil
                            :box nil))
-		  (,dark  (:foreground ,nano-dark-foreground
-		           :background ,nano-dark-subtle
+          (,dark  (:foreground ,nano-dark-foreground
+                   :background ,nano-dark-subtle
                            :inherit nil
                            :box nil))))
 
@@ -664,11 +664,11 @@ background color that is barely perceptible."
    
    ;; --- Windows divider ----------------------------------------------
    `(window-divider                ((,light (:foreground ,nano-light-background))
-			            (,dark  (:foreground ,nano-dark-background))))
+                        (,dark  (:foreground ,nano-dark-background))))
    '(window-divider-first-pixel    ((t (:inherit window-divider))))
    '(window-divider-last-pixel     ((t (:inherit window-divider))))
    `(vertical-border               ((,light (:foreground ,nano-light-background))
-			            (,dark  (:foreground ,nano-dark-background))))
+                        (,dark  (:foreground ,nano-dark-background))))
 
    ;; --- Tab bar ------------------------------------------------------
    '(tab-bar                       ((t (:inherit default))))
@@ -739,18 +739,18 @@ background color that is barely perceptible."
 
    `(custom-button-mouse
      ((,light (:foreground ,nano-light-foreground
-	       :background ,nano-light-subtle
+           :background ,nano-light-subtle
                :box nil))
       (,dark (:foreground ,nano-dark-foreground
-	      :background ,nano-dark-subtle
+          :background ,nano-dark-subtle
               :box nil))))
 
    `(custom-button-pressed
      ((,light (:foreground ,nano-light-background
-	       :background ,nano-light-foreground
+           :background ,nano-light-foreground
                :box nil))
       (,dark (:foreground ,nano-dark-background
-	      :background ,nano-dark-foreground
+          :background ,nano-dark-foreground
               :box nil))))
 
    ;; --- Packages -----------------------------------------------------
@@ -816,7 +816,7 @@ background color that is barely perceptible."
                                                    nano-strong)))))
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
-						  :strike-through t))))
+                                         :strike-through t))))
    
    ;; --- Message ------------------------------------------------------
    '(message-cited-text-1           ((t (:inherit nano-faded))))
