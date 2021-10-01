@@ -355,7 +355,7 @@ background color that is barely perceptible."
 
   ;; No toolbar
   (if (fboundp 'tool-bar-mode)
-      (tool-bar-mode nil))
+      (tool-bar-mode -1))
 
   ;; Default frame settings
   (setq default-frame-alist
