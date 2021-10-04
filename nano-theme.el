@@ -287,6 +287,7 @@ background color that is barely perceptible."
 
 (defun nano-setup ()
   "Defaults settings for nano (optional)"
+  (interactive)
 
   ;; Use nano fonts
   (setq nano-fonts-use t)
