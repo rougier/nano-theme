@@ -39,25 +39,13 @@
 (deftheme nano-dark
   "N Λ N O dark theme")
 
+
 (set-foreground-color nano-dark-foreground)
 (set-background-color nano-dark-background)
 (nano-theme 'dark)
 
-;; (set-frame-parameter nil 'background-mode 'dark)
-;; (set frame-background-mode 'dark)
-;; (frame-set-background-mode (selected-frame))
-
-;; (nano-theme 'dark) 
-
-;; (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
-;;                       " *Minibuf-1*" " *Echo Area 1*"))
-;;   (when (get-buffer buffer)
-;;     (with-current-buffer buffer
-;;       (face-remap-add-relative 'default 'nano-faded))))
-
-
 ;;;###autoload
-(when (and (boundp 'custom-theme-load-path) load-file-name)
+(when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 

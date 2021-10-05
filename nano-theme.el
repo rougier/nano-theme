@@ -404,61 +404,26 @@ background color that is barely perceptible."
 
 ;; (defun nano-light ()
 ;;   "Nano theme light"
-  
+
 ;;   (interactive)
-;;   (setq widget-image-enable nil)
-;;   (setq x-underline-at-descent-line t)
-;;   (set-foreground-color nano-light-foreground)
-;;   (set-face-background 'internal-border nano-light-background (selected-frame))
-;;   (custom-set-variables '(frame-background-mode 'light))
-;;   (load-theme 'nano t)
+
 ;;   (set-frame-parameter nil 'background-mode 'light)
-;;   (if (assq 'background-color default-frame-alist)
-;;       (setcdr (assq 'background-color default-frame-alist)
-;;               nano-light-background)
-;;     (add-to-list 'default-frame-alist
-;;                  `(background-color . ,nano-light-background)))
-;;   (if (assq 'background-mode default-frame-alist)
-;;       (setcdr (assq 'background-mode default-frame-alist) 'light)
-;;     (add-to-list 'default-frame-alist '(background-mode . light)))
+;;   (setq frame-background-mode 'light)
 
-;;   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
-;;                         " *Minibuf-1*" " *Echo Area 1*"))
-;;     (when (get-buffer buffer)
-;;       (with-current-buffer buffer
-;;         (face-remap-add-relative 'default 'nano-faded))))
-;;   (frame-set-background-mode (selected-frame))
-;;   (set-background-color nano-light-background))
-
+;;   (set-foreground-color nano-light-foreground)
+;;   (set-background-color nano-light-background)
+;;   (nano-theme 'light))
 
 ;; (defun nano-dark ()
 ;;   "Nano theme dark"
-  
+
 ;;   (interactive)
-;;   (setq widget-image-enable nil)
-;;   (setq x-underline-at-descent-line t)
-;;   (set-foreground-color nano-dark-foreground)
-;;   (set-face-background 'internal-border nano-dark-background (selected-frame))
-;;   (custom-set-variables '(frame-background-mode 'dark))
-;;   (load-theme 'nano t)
 ;;   (set-frame-parameter nil 'background-mode 'dark)
+;;   (setq frame-background-mode 'dark)
 
-;;   (if (assq 'background-color default-frame-alist)
-;;       (setcdr (assq 'background-color default-frame-alist)
-;;               nano-dark-background)
-;;     (add-to-list 'default-frame-alist
-;;                  `(background-color . ,nano-dark-background)))
-;;   (if (assq 'background-mode default-frame-alist)
-;;       (setcdr (assq 'background-mode default-frame-alist) 'dark)
-;;     (add-to-list 'default-frame-alist '(background-mode . dark)))
-
-;;   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
-;;                         " *Minibuf-1*" " *Echo Area 1*"))
-;;     (when (get-buffer buffer)
-;;       (with-current-buffer buffer
-;;         (face-remap-add-relative 'default 'nano-faded))))
-;;   (frame-set-background-mode (selected-frame))
-;;   (set-background-color nano-dark-background))
+;;   (set-foreground-color nano-dark-foreground)
+;;   (set-background-color nano-dark-background)
+;;   (nano-theme 'dark))
 
 
 ;; (defun inherit (face &optional inherit)
@@ -479,12 +444,56 @@ background color that is barely perceptible."
 ;;       properties)))
 
 
+(defun nano-new-frame (&optional mode)
+  "This funcion creates a new frame in light or dark mode)"
+  
+  (interactive)
+  (let ((mode (or mode (frame-parameter nil 'background-mode)))
+        (background-mode frame-background-mode)
+        (selected-frame (selected-frame))
+        (new-frame nil))
+
+    ;; Set mode
+    (setq frame-background-mode mode)
+    (setq new-frame (make-frame-command))
+    (select-frame new-frame)
+
+    ;; This forces recomputation of faces on the new frame
+    (frame-set-background-mode (selected-frame))
+           
+    (when (eq mode 'light)
+      (set-foreground-color nano-light-foreground)
+      (set-background-color nano-light-background))
+
+    (when (eq mode 'dark)
+      (set-foreground-color nano-dark-foreground)
+      (set-background-color nano-dark-background))
+
+    ;; Restore background mode
+    (setq frame-background-mode background-mode)
+    (frame-set-background-mode selected-frame)
+    
+    new-frame))
+
+(defun nano-dark ()
+  "Load the nano dark theme on current frame."
+
+  (interactive)
+  (set-foreground-color nano-dark-foreground)
+  (set-background-color nano-dark-background)
+  (load-theme 'nano-dark t))
+
+(defun nano-light ()
+  "Load the nano light theme on current frame."
+
+  (interactive)
+  (set-foreground-color nano-light-foreground)
+  (set-background-color nano-light-background)
+  (load-theme 'nano-light t))
+
+
 (defun nano-theme (mode)
-
-  (set-frame-parameter nil 'background-mode mode)
-  (setq frame-background-mode mode)
-  (frame-set-background-mode (selected-frame))
-
+  "Apply the nano theme according to MODE which can be 'dark or 'light."
 
   (let ((light     '((background light)))
         (dark      '((background dark)))
@@ -492,6 +501,10 @@ background color that is barely perceptible."
                        'nano-dark
                      'nano-light)))
 
+    (set-frame-parameter nil 'background-mode mode)
+    (setq frame-background-mode mode)
+    (frame-set-background-mode (selected-frame))
+    
     (if nano-fonts-use
         (custom-theme-set-faces theme
          `(default ((,light (:foreground ,nano-light-foreground
