@@ -482,7 +482,7 @@ background color that is barely perceptible."
 (defun nano-theme (mode)
 
   (set-frame-parameter nil 'background-mode mode)
-  (set frame-background-mode mode)
+  (setq frame-background-mode mode)
   (frame-set-background-mode (selected-frame))
 
 
