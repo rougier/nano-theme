@@ -472,6 +472,17 @@ background color that is barely perceptible."
   (set-background-color nano-light-background)
   (load-theme 'nano-light t))
 
+(defvar nano-theme--current 'light
+  "Current nano theme")
+
+(defun nano-theme-toggle ()
+  "Toggle theme on current frame."
+
+  (interactive)
+  (if (eq nano-theme--current 'light)
+      (nano-dark)
+    (nano-light)))
+
 
 (defun nano-theme (mode)
   "Apply the nano theme according to MODE which can be 'dark or 'light."
@@ -484,6 +495,7 @@ background color that is barely perceptible."
 
     (set-frame-parameter nil 'background-mode mode)
     (setq frame-background-mode mode)
+    (setq nano-theme--current mode)
     (frame-set-background-mode (selected-frame))
     
     (when nano-fonts-use
