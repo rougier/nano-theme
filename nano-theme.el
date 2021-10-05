@@ -4,7 +4,7 @@
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -80,16 +80,24 @@
 ;; You can use the theme as a regular theme or you can call
 ;; (nano-light) / (nano-dark) explicitely to install the light or dark
 ;; version.
+;;
+;; With GUI, you can mix frames with light and dark mode. Just call
+;; (nano-new-frame 'light) or (nano-new-frame 'dark)
 ;; 
-;; Optionally, you can use (nano-setup) to setup default settings.  Be
-;; careful since it will modify your configuration and requires
-;; specific fonts.
+;; Optionally, you can use (nano-mode) to setup recommended settings for
+;; the theme. Be careful since it will modify your configuration and
+;; requires a set of specific fonts. This needs to be called before
+;; setting the theme
 ;;
 ;; Recommended font is "Roboto Mono" or "Roboto Mono Nerd" if you want
 ;; to benefit from all the fancy glyphs. See https://www.nerdfonts.com.
 
 ;;; NEWS:
 
+;; Version 0.2
+;; - Split light / dark themes properly
+;; - Added a nano-new-frame function
+;;
 ;; Version 0.1
 ;; - Submission to ELPA
 
@@ -296,7 +304,7 @@ background color that is barely perceptible."
   "Default face inversed."
   :group nil)
 
-(defun nano-setup ()
+(defun nano-mode ()
   "Defaults settings for nano (optional)"
   (interactive)
 
@@ -358,16 +366,13 @@ background color that is barely perceptible."
   (setq blink-cursor-mode nil)
 
   ;; No tooltips
-  (if (fboundp 'tooltip-mode)
-      (tooltip-mode -1))
+  (tooltip-mode -1)
 
   ;; No scroll bars
-  (if (fboundp 'scroll-bar-mode)
-      (scroll-bar-mode -1))
+  (scroll-bar-mode -1)
 
   ;; No toolbar
-  (if (fboundp 'tool-bar-mode)
-      (tool-bar-mode -1))
+  (tool-bar-mode -1)
 
   ;; Default frame settings
   (setq default-frame-alist
@@ -402,30 +407,6 @@ background color that is barely perceptible."
       (message "Roboto Mono Nerd font has not been found on your system"))))
 
 
-;; (defun nano-light ()
-;;   "Nano theme light"
-
-;;   (interactive)
-
-;;   (set-frame-parameter nil 'background-mode 'light)
-;;   (setq frame-background-mode 'light)
-
-;;   (set-foreground-color nano-light-foreground)
-;;   (set-background-color nano-light-background)
-;;   (nano-theme 'light))
-
-;; (defun nano-dark ()
-;;   "Nano theme dark"
-
-;;   (interactive)
-;;   (set-frame-parameter nil 'background-mode 'dark)
-;;   (setq frame-background-mode 'dark)
-
-;;   (set-foreground-color nano-dark-foreground)
-;;   (set-background-color nano-dark-background)
-;;   (nano-theme 'dark))
-
-
 ;; (defun inherit (face &optional inherit)
 ;;   "Extract face properties as a property list"
   
@@ -445,7 +426,7 @@ background color that is barely perceptible."
 
 
 (defun nano-new-frame (&optional mode)
-  "This funcion creates a new frame in light or dark mode)"
+  "This funcion creates a new frame in light or dark MODE."
   
   (interactive)
   (let ((mode (or mode (frame-parameter nil 'background-mode)))
@@ -505,7 +486,7 @@ background color that is barely perceptible."
     (setq frame-background-mode mode)
     (frame-set-background-mode (selected-frame))
     
-    (if nano-fonts-use
+    (when nano-fonts-use
         (custom-theme-set-faces theme
          `(default ((,light (:foreground ,nano-light-foreground
                              :weight     ,(face-attribute 'nano-mono :weight)
@@ -521,7 +502,7 @@ background color that is barely perceptible."
                                 :height ,(face-attribute 'nano-sans :height)
                                 :family ,(face-attribute 'nano-sans :family)))))))
 
-    (if (not nano-fonts-use)
+    (unless nano-fonts-use
         (custom-theme-set-faces theme
          `(default ((,light (:foreground ,nano-light-foreground))
                     (,dark  (:foreground ,nano-dark-foreground))))
