@@ -496,6 +496,9 @@ background color that is barely perceptible."
                        'nano-dark
                      'nano-light)))
 
+    (custom-set-variables '(widget-image-enable nil)
+                          '(x-underline-at-descent-line t))
+
     (set-frame-parameter nil 'background-mode mode)
     (setq frame-background-mode mode)
     (setq nano-theme--current mode)
