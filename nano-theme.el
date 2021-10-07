@@ -4,7 +4,7 @@
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.2
+;; Version: 0.2.1
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -93,6 +93,9 @@
 ;; to benefit from all the fancy glyphs. See https://www.nerdfonts.com.
 
 ;;; NEWS:
+
+;; Version 0.2.1
+;; - Added nano-modeline faces
 
 ;; Version 0.2
 ;; - Split light / dark themes properly
@@ -508,8 +511,8 @@ background color that is barely perceptible."
                              :weight     ,(face-attribute 'nano-mono :weight)
                              :height     ,(face-attribute 'nano-mono :height)
                              :family     ,(face-attribute 'nano-mono :family)))))
-         `(nano-strong ((,light (:weight normal))
-                        (,dark  (:weight normal))))
+         `(nano-strong ((,light (:weight normal :foreground ,nano-light-strong))
+                        (,dark  (:weight normal :foreground ,nano-dark-strong))))
          `(variable-pitch  ((t (:weight ,(face-attribute 'nano-sans :weight)
                                 :height ,(face-attribute 'nano-sans :height)
                                 :family ,(face-attribute 'nano-sans :family)))))))
@@ -518,8 +521,8 @@ background color that is barely perceptible."
         (custom-theme-set-faces theme
          `(default ((,light (:foreground ,nano-light-foreground))
                     (,dark  (:foreground ,nano-dark-foreground))))
-         `(nano-strong ((,light (:weight bold))
-                        (,dark  (:weight bold))))))
+         `(nano-strong ((,light (:weight bold :foreground ,nano-light-strong))
+                        (,dark  (:weight bold :foreground ,nano-dark-strong))))))
 
   
   (custom-theme-set-faces theme
@@ -801,6 +804,23 @@ background color that is barely perceptible."
    ;; --- Helpful ------------------------------------------------------
    '(helpful-heading                ((t (:inherit nano-strong))))
 
+   ;; --- Nano modeline ------------------------------------------------
+   '(nano-modeline-active               ((t (:inherit nano-subtle))))
+   '(nano-modeline-active-name          ((t (:inherit (nano-strong nano-modeline-active)))))
+   '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)))))
+   '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active)))))
+   '(nano-modeline-active-status-RO     ((t (:inherit nano-popout-i))))
+   '(nano-modeline-active-status-RW     ((t (:inherit nano-faded-i))))
+   '(nano-modeline-active-status-**     ((t (:inherit nano-critical))))      
+
+   '(nano-modeline-inactive             ((t (:inherit nano-subtle))))
+   '(nano-modeline-inactive-name        ((t (:inherit (nano-faded nano-modeline-inactive)))))
+   '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)))))
+   '(nano-modeline-inactive-secondary   ((t (:inherit (nano-faded nano-modeline-inactive)))))
+   '(nano-modeline-inactive-status-RO   ((t (:inherit (nano-popout nano-modeline-inactive)))))
+   '(nano-modeline-inactive-status-RW   ((t (:inherit (nano-faded nano-modeline-inactive)))))
+   '(nano-modeline-inactive-status-**   ((t (:inherit (nano-critical-i nano-modeline-inactive)))))
+   
    ;; --- EPA ----------------------------------------------------------
    '(epa-field-body                 ((t (:inherit nano-default))))
    '(epa-field-name                 ((t (:inherit nano-strong))))
