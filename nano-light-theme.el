@@ -43,15 +43,6 @@
 (set-background-color nano-light-background)
 (nano-theme 'light)
 
-
-(defun nano-light ()
-  "Nano theme light"
-
-  (interactive)
-  (set-foreground-color nano-light-foreground)
-  (set-background-color nano-light-background)
-  (load-theme 'nano-light t))
-
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path

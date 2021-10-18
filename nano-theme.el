@@ -463,17 +463,36 @@ background color that is barely perceptible."
   "Load the nano dark theme on current frame."
 
   (interactive)
-  (set-foreground-color nano-dark-foreground)
-  (set-background-color nano-dark-background)
-  (load-theme 'nano-dark t))
+  ;; (setq inhibit-frame-set-background-mode nil)
+  ;; (setq frame-background-mode nil)
+  ;; (let ((parent (selected-frame))
+  ;;        (children (frame-list)))
+  ;;    (dolist (child children)
+  ;;      (when (eq (frame-parameter child 'parent-frame) parent)
+  ;;        (with-selected-frame child
+  ;;          (load-theme 'nano-dark t)
+  ;;          (setq frame-background-mode 'dark)))))
+  ;; (set-foreground-color nano-dark-foreground)
+  ;; (set-background-color nano-dark-background)
+  (load-theme 'nano-dark t)
+  (setq frame-background-mode 'dark))
 
 (defun nano-light ()
   "Load the nano light theme on current frame."
 
   (interactive)
-  (set-foreground-color nano-light-foreground)
-  (set-background-color nano-light-background)
-  (load-theme 'nano-light t))
+  ;; (setq inhibit-frame-set-background-mode t)
+  ;; (setq frame-background-mode nil)
+  ;; (let ((parent (selected-frame))
+  ;;       (children (frame-list)))
+  ;;   (dolist (child children)
+  ;;     (when (eq (frame-parameter child 'parent-frame) parent)
+  ;;       (with-selected-frame child
+  ;;         (load-theme 'nano-light t)))))
+    ;; (set-foreground-color nano-light-foreground)
+    ;; (set-background-color nano-light-background)
+    (load-theme 'nano-light t)
+    (setq frame-background-mode 'light))
 
 (defvar nano-theme--current 'light
   "Current nano theme")
@@ -494,16 +513,26 @@ background color that is barely perceptible."
         (dark      '((background dark)))
         (theme      (if (eq mode 'dark)
                        'nano-dark
-                     'nano-light)))
+                      'nano-light)))
+
+
+    
+    ;; (add-to-list 'default-frame-alist `(background-mode . ,mode))
+    (add-to-list 'default-frame-alist `(background-color . ,(if (eq mode 'light)
+                                                                nano-light-background
+                                                              nano-dark-background)))
+    (add-to-list 'default-frame-alist `(foreground-color . ,(if (eq mode 'light)
+                                                                nano-light-foreground
+                                                              nano-dark-foreground)))
 
     (custom-set-variables '(widget-image-enable nil)
                           '(x-underline-at-descent-line t))
-
-    (set-frame-parameter nil 'background-mode mode)
-    (setq frame-background-mode mode)
-    (setq nano-theme--current mode)
-    (frame-set-background-mode (selected-frame))
     
+    (set-frame-parameter nil 'background-mode mode)
+;;    (setq frame-background-mode mode)
+;;    (setq nano-theme--current mode)
+;;    (frame-set-background-mode (selected-frame))
+
     (when nano-fonts-use
         (custom-theme-set-faces theme
          `(default ((,light (:foreground ,nano-light-foreground
@@ -531,6 +560,12 @@ background color that is barely perceptible."
   (custom-theme-set-faces theme
    
    ;; --- Base ---------------------------------------------------------   
+
+   `(default ((,light  (:background ,nano-light-background
+                        :foreground ,nano-light-foreground))
+              (,dark  (:background ,nano-dark-background
+                       :foreground ,nano-dark-foreground))))
+
    `(cursor ((,light (:foreground ,nano-light-background
                       :background ,nano-light-foreground))
              (,dark  (:foreground ,nano-dark-background
@@ -671,8 +706,8 @@ background color that is barely perceptible."
    '(trailing-whitespace           ((t (:inherit nano-subtle))))
    '(secondary-selection           ((t (:inherit nano-subtle))))
    '(completions-annotations       ((t (:inherit nano-faded))))
-   '(completions-common-part       ((t (:inherit nano-faded))))
-   '(completions-first-difference  ((t (:inherit default))))
+   '(completions-common-part       ((t (:inherit nano-strong))))
+   '(completions-first-difference  ((t (:inherit nano-default))))
    '(tooltip                       ((t (:inherit nano-subtle))))
    '(read-multiple-choice-face     ((t (:inherit nano-strong))))
    '(nobreak-hyphen                ((t (:inherit nano-popout))))

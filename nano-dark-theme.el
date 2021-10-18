@@ -39,7 +39,6 @@
 (deftheme nano-dark
   "N Λ N O dark theme")
 
-
 (set-foreground-color nano-dark-foreground)
 (set-background-color nano-dark-background)
 (nano-theme 'dark)
