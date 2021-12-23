@@ -498,29 +498,30 @@ background color that is barely perceptible."
 (defun nano-theme (mode)
   "Apply the nano theme according to MODE which can be 'dark or 'light."
 
+  (message (format "Theme applied: %s" mode))
+  
   (let ((light     '((background light)))
         (dark      '((background dark)))
         (theme      (if (eq mode 'dark)
                        'nano-dark
                       'nano-light)))
-
-
     
-    ;; (add-to-list 'default-frame-alist `(background-mode . ,mode))
-    (add-to-list 'default-frame-alist `(background-color . ,(if (eq mode 'light)
-                                                                nano-light-background
-                                                              nano-dark-background)))
-    (add-to-list 'default-frame-alist `(foreground-color . ,(if (eq mode 'light)
-                                                                nano-light-foreground
-                                                              nano-dark-foreground)))
+     (add-to-list 'default-frame-alist `(background-mode . ,mode))
+     (add-to-list 'default-frame-alist `(background-color . ,(if (eq mode 'light)
+                                                                 nano-light-background
+                                                               nano-dark-background)))
+     (add-to-list 'default-frame-alist `(foreground-color . ,(if (eq mode 'light)
+                                                                 nano-light-foreground
+                                                               nano-dark-foreground)))
 
     (custom-set-variables '(widget-image-enable nil)
                           '(x-underline-at-descent-line t))
     
-    (set-frame-parameter nil 'background-mode mode)
-;;    (setq frame-background-mode mode)
-;;    (setq nano-theme--current mode)
-;;    (frame-set-background-mode (selected-frame))
+    ;; (set-frame-parameter nil 'background-mode mode)
+    (setq frame-background-mode mode)
+    (frame-set-background-mode (selected-frame))
+    ;; (setq nano-theme--current mode)
+    ;; (frame-set-background-mode (selected-frame))
 
     (when nano-fonts-use
         (custom-theme-set-faces theme
