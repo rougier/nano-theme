@@ -390,7 +390,7 @@ background color that is barely perceptible."
                  '(menu-bar-lines . 0))))
 
   ;; Line spacing (in pixels)
-  (setq line-spacing 0)
+  ;; (setq line-spacing 0)
   
   ;; Vertical window divider
   (setq window-divider-default-right-width 24)
