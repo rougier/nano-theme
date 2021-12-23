@@ -962,7 +962,7 @@ background color that is barely perceptible."
    '(org-checkbox-statistics-done            ((t (:inherit nano-faded))))
    '(org-checkbox-statistics-todo            ((t (:inherit nano-faded))))
    '(org-clock-overlay                       ((t (:inherit nano-faded))))
-   '(org-code                                ((t (:inherit nano-faded))))
+   '(org-code                                ((t (:inherit nano-default))))
    '(org-column                              ((t (:inherit nano-faded))))
    '(org-column-title                        ((t (:inherit nano-faded))))
    '(org-date                                ((t (:inherit nano-faded))))
