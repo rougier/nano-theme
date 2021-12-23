@@ -769,6 +769,9 @@ background color that is barely perceptible."
     '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
     '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
 
+    '(company-tooltip-scrollbar-thumb      ((t (:inherit nano-default-i))))
+    '(company-tooltip-scrollbar-track      ((t (:inherit nano-faded-i))))
+    
     '(company-tooltip-common               ((t (:inherit nano-strong))))
     '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
                                                 :weight normal))))
