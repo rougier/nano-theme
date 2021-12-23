@@ -550,10 +550,10 @@ background color that is barely perceptible."
    
    ;; --- Base ---------------------------------------------------------   
 
-   `(default ((,light  (:background ,nano-light-background
-                        :foreground ,nano-light-foreground))
-              (,dark  (:background ,nano-dark-background
-                       :foreground ,nano-dark-foreground))))
+;;   `(default ((,light  (:background ,nano-light-background
+;;                        :foreground ,nano-light-foreground))
+;;              (,dark  (:background ,nano-dark-background
+;;                       :foreground ,nano-dark-foreground))))
 
    `(cursor ((,light (:foreground ,nano-light-background
                       :background ,nano-light-foreground))
