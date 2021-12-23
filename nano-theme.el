@@ -112,7 +112,7 @@
   :group 'convenience)
 
 (defgroup nano-theme nil
-  "Theme"
+  "N Λ N O Theme"
   :group 'nano)
 
 (defgroup nano-theme-light nil
