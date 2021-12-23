@@ -175,7 +175,7 @@
   "Subtle color is used to suggest a physical area on the screen."
   :type 'color :group 'nano-theme-light)
 
-(defcustom nano-light-faded "#B0BEC5" ;; Blue Grey / L200
+(defcustom nano-light-faded "#90A4AE" ;; Blue Grey / L300
   "Faded face is for information that are less important."
   :type 'color :group 'nano-theme-light)
 
@@ -187,7 +187,7 @@
   "Strong color is used for information of a structural nature."
   :type 'color :group 'nano-theme-light)
 
-(defcustom nano-light-popout "#FFAB91" ;; Deep Orange / L200
+(defcustom nano-light-popout "#FF8A65" ;; Deep Orange / L300
   "Popout colour is used for information that needs attention."
   :type 'color :group 'nano-theme-light)
 
