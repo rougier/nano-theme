@@ -463,36 +463,25 @@ background color that is barely perceptible."
   "Load the nano dark theme on current frame."
 
   (interactive)
-  ;; (setq inhibit-frame-set-background-mode nil)
-  ;; (setq frame-background-mode nil)
-  ;; (let ((parent (selected-frame))
-  ;;        (children (frame-list)))
-  ;;    (dolist (child children)
-  ;;      (when (eq (frame-parameter child 'parent-frame) parent)
-  ;;        (with-selected-frame child
-  ;;          (load-theme 'nano-dark t)
-  ;;          (setq frame-background-mode 'dark)))))
-  ;; (set-foreground-color nano-dark-foreground)
-  ;; (set-background-color nano-dark-background)
-  (load-theme 'nano-dark t)
-  (setq frame-background-mode 'dark))
+   ;; (let ((parent (selected-frame))
+   ;;        (children (frame-list)))
+   ;;    (dolist (child children)
+   ;;      (when (eq (frame-parameter child 'parent-frame) parent)
+   ;;        (with-selected-frame child
+   ;;          (setq frame-background-mode 'dark)
+   ;;          (set-foreground-color nano-dark-foreground)
+   ;;          (set-background-color nano-dark-background)
+   ;;          (frame-set-background-mode child)
+   ;;          (load-theme 'nano-dark t)))))
+  ;;  (set-foreground-color nano-dark-foreground)
+  ;;   (set-background-color nano-dark-background)
+  (load-theme 'nano-dark t))
 
 (defun nano-light ()
   "Load the nano light theme on current frame."
 
   (interactive)
-  ;; (setq inhibit-frame-set-background-mode t)
-  ;; (setq frame-background-mode nil)
-  ;; (let ((parent (selected-frame))
-  ;;       (children (frame-list)))
-  ;;   (dolist (child children)
-  ;;     (when (eq (frame-parameter child 'parent-frame) parent)
-  ;;       (with-selected-frame child
-  ;;         (load-theme 'nano-light t)))))
-    ;; (set-foreground-color nano-light-foreground)
-    ;; (set-background-color nano-light-background)
-    (load-theme 'nano-light t)
-    (setq frame-background-mode 'light))
+  (load-theme 'nano-light t))
 
 (defvar nano-theme--current 'light
   "Current nano theme")
