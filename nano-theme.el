@@ -733,7 +733,7 @@ background color that is barely perceptible."
    ;; --- Font lock ----------------------------------------------------
    '(font-lock-comment-face        ((t (:inherit nano-faded))))
    '(font-lock-doc-face            ((t (:inherit nano-faded))))
-   '(font-lock-string-face         ((t (:inherit nano-popout))))
+   '(font-lock-string-face         ((t (:inherit nano-faded))))
    '(font-lock-constant-face       ((t (:inherit nano-salient))))
    '(font-lock-warning-face        ((t (:inherit nano-popout))))
    '(font-lock-function-name-face  ((t (:inherit nano-strong))))
