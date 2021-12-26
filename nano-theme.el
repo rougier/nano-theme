@@ -187,7 +187,7 @@
   "Strong color is used for information of a structural nature."
   :type 'color :group 'nano-theme-light)
 
-(defcustom nano-light-popout "#FF8A65" ;; Deep Orange / L300
+(defcustom nano-light-popout "#FFAB91" ;; Deep Orange / L200
   "Popout colour is used for information that needs attention."
   :type 'color :group 'nano-theme-light)
 
