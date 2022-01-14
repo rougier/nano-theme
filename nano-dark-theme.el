@@ -34,19 +34,15 @@
 ;;
 
 ;;; Code:
-(require 'nano-theme)
+(require 'nano-theme-support)
 
+;;;###autoload
 (deftheme nano-dark
   "N Λ N O dark theme")
 
 (set-foreground-color nano-dark-foreground)
 (set-background-color nano-dark-background)
-(nano-theme 'dark)
-
-;;;###autoload
-(when load-file-name
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
+(nano-theme 'nano-dark 'dark)
 
 (provide-theme 'nano-dark)
 ;;; nano-dark-theme.el ends here
