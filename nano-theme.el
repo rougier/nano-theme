@@ -546,8 +546,6 @@ background color that is barely perceptible."
          `(nano-strong ((,light (:weight bold :foreground ,nano-light-strong))
                         (,dark  (:weight bold :foreground ,nano-dark-strong))))))
 
-  
-  (custom-theme-set-faces theme
     
     (custom-theme-set-faces theme
    
@@ -1126,7 +1124,41 @@ background color that is barely perceptible."
    '(gnus-summary-normal-undownloaded       ((t (:inherit nano-faded))))
    '(gnus-summary-normal-unread             ((t (:inherit nano-faded))))
    '(gnus-summary-selected                  ((t (:inherit nano-faded))))
-   
+
+   ;; --- Marginalia ---------------------------------------------------
+   '(marginalia-archive                     ((t (:inherit nano-faded))))
+   '(marginalia-char                        ((t (:inherit nano-faded))))
+   '(marginalia-date                        ((t (:inherit nano-faded))))
+   '(marginalia-documentation               ((t (:inherit nano-faded))))
+   '(marginalia-file-name                   ((t (:inherit nano-faded))))
+   '(marginalia-file-owner                  ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-dir               ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-exec              ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-link              ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-no                ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-other             ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-rare              ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-read              ((t (:inherit nano-faded))))
+   '(marginalia-file-priv-write             ((t (:inherit nano-faded))))
+   '(marginalia-function                    ((t (:inherit nano-faded))))
+   '(marginalia-installed                   ((t (:inherit nano-faded))))
+   '(marginalia-key                         ((t (:inherit nano-faded))))
+   '(marginalia-lighter                     ((t (:inherit nano-faded))))
+   '(marginalia-list                        ((t (:inherit nano-faded))))
+   '(marginalia-mode                        ((t (:inherit nano-faded))))
+   '(marginalia-modified                    ((t (:inherit nano-faded))))
+   '(marginalia-null                        ((t (:inherit nano-faded))))
+   '(marginalia-number                      ((t (:inherit nano-faded))))
+   '(marginalia-off                         ((t (:inherit nano-faded))))
+   '(marginalia-on                          ((t (:inherit nano-faded))))
+   '(marginalia-size                        ((t (:inherit nano-faded))))
+   '(marginalia-string                      ((t (:inherit nano-faded))))
+   '(marginalia-symbol                      ((t (:inherit nano-faded))))
+   '(marginalia-true                        ((t (:inherit nano-faded))))
+   '(marginalia-type                        ((t (:inherit nano-faded))))
+   '(marginalia-value                       ((t (:inherit nano-faded))))
+   '(marginalia-version                     ((t (:inherit nano-faded))))
+
    ;; --- Elfeed -------------------------------------------------------
     '(elfeed-log-date-face                    ((t (:inherit nano-faded))))
     '(elfeed-log-info-level-face            ((t (:inherit nano-default))))
@@ -1171,6 +1203,8 @@ background color that is barely perceptible."
     '(rst-reference                         ((t (:inherit nano-salient))))
     '(rst-transition                        ((t (:inherit nano-default))))
 
+
+    
     ;; --- Markdown ----------------------------------------------------
     '(markdown-blockquote-face              ((t (:inherit nano-default))))
     '(markdown-bold-face                     ((t (:inherit nano-strong))))
