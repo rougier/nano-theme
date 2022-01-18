@@ -913,6 +913,11 @@ background color that is barely perceptible."
    '(corfu-echo                     ((t (:inherit nano-faded))))
 
    ;; --- Orderless ----------------------------------------------------
+   '(orderless-match-face-0         ((t (:inherit (nano-salient
+                                                   nano-strong)))))
+   '(orderless-match-face-1         ((t (:inherit (nano-strong)))))
+   '(orderless-match-face-2         ((t (:inherit (nano-strong)))))
+   '(orderless-match-face-3         ((t (:inherit (nano-strong)))))
    
    ;; --- Message ------------------------------------------------------
    '(message-cited-text-1           ((t (:inherit nano-faded))))
