@@ -902,6 +902,17 @@ background color that is barely perceptible."
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
                                          :strike-through t))))
+
+   ;; --- Corfu --------------------------------------------------------
+   '(corfu-annotations              ((t (:inherit nano-faded))))
+   '(corfu-bar                      ((t (:inherit nano-default-i))))
+   '(corfu-border                   ((t (:inherit nano-default-i))))
+   '(corfu-current                  ((t (:inherit highlight))))
+   '(corfu-default                  ((t (:inherit nano-subtle))))
+   '(corfu-deprecated               ((t (:inherit nano-faded))))
+   '(corfu-echo                     ((t (:inherit nano-faded))))
+
+   ;; --- Orderless ----------------------------------------------------
    
    ;; --- Message ------------------------------------------------------
    '(message-cited-text-1           ((t (:inherit nano-faded))))
