@@ -548,6 +548,8 @@ background color that is barely perceptible."
 
   
   (custom-theme-set-faces theme
+    
+    (custom-theme-set-faces theme
    
    ;; --- Base ---------------------------------------------------------   
 
@@ -840,7 +842,7 @@ background color that is barely perceptible."
    '(nano-modeline-active-name          ((t (:inherit (nano-strong nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)))))
    '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active)))))
-   '(nano-modeline-active-status-RO     ((t (:inherit (nano-default-i nano-strong)))))
+   '(nano-modeline-active-status-RO     ((t (:inherit (nano-subtle nano-strong)))))
    '(nano-modeline-active-status-RW     ((t (:inherit (nano-faded-i nano-strong)))))
    '(nano-modeline-active-status-**     ((t (:inherit (nano-popout-i nano-strong)))))
 
