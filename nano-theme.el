@@ -946,8 +946,10 @@ background color that is barely perceptible."
    '(outline-8                      ((t (:inherit nano-strong))))
    
    ;; --- Fly spell ----------------------------------------------------
-   '(flyspell-duplicate             ((t (:inherit nano-popout))))
-   '(flyspell-incorrect             ((t (:inherit nano-popout))))
+   '(flyspell-duplicate             ((t (:inherit (highlight nano-faded)
+                                         :underline t))))
+   '(flyspell-incorrect             ((t (:inherit (highlight nano-faded)
+                                         :underline t))))
 
    ;; --- Org agenda ---------------------------------------------------
    '(org-agenda-calendar-event      ((t (:inherit nano-default))))
