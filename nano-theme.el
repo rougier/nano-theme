@@ -498,7 +498,7 @@ background color that is barely perceptible."
 (defun nano-theme (mode)
   "Apply the nano theme according to MODE which can be 'dark or 'light."
 
-  (message (format "Theme applied: %s" mode))
+  ;; (message (format "Theme applied: %s" mode))
   
   (let ((light     '((background light)))
         (dark      '((background dark)))
