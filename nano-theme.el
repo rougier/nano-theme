@@ -159,6 +159,14 @@
   "Default proportional serif font (Roboto Slab Light, 14pt)."
   :group 'nano-theme-fonts)
 
+(defface nano-italic
+  '((t (:family "Victor Mono"
+        :slant italic
+        :height 140
+        :weight regular)))
+  "Default italic font (Victor Mono Italic Light, 14pt)."
+  :group 'nano-theme-fonts)
+
 (defcustom nano-light-foreground "#37474F" ;; Blue Grey / L800
   "Default foreground color"
   :type 'color :group 'nano-theme-light)
@@ -533,6 +541,16 @@ background color that is barely perceptible."
                              :weight     ,(face-attribute 'nano-mono :weight)
                              :height     ,(face-attribute 'nano-mono :height)
                              :family     ,(face-attribute 'nano-mono :family)))))
+         `(italic ((,light (:foreground ,nano-light-foreground
+                             :weight     ,(face-attribute 'nano-italic :weight)
+                             :height     ,(face-attribute 'nano-italic :height)
+                             :slant      ,(face-attribute 'nano-italic :slant)
+                             :family     ,(face-attribute 'nano-italic :family)))
+                    (,dark  (:foreground ,nano-dark-foreground
+                             :weight     ,(face-attribute 'nano-italic :weight)
+                             :height     ,(face-attribute 'nano-italic :height)
+                             :slant      ,(face-attribute 'nano-italic :slant)
+                             :family     ,(face-attribute 'nano-italic :family)))))
          `(nano-strong ((,light (:weight normal ))
                         (,dark  (:weight normal ))))
          `(variable-pitch  ((t (:weight ,(face-attribute 'nano-sans :weight)
