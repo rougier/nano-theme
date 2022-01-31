@@ -635,17 +635,17 @@ background color that is barely perceptible."
                     (,dark  (:foreground ,nano-dark-background
                              :background ,nano-dark-popout))))
    
-   `(nano-critical ((,light (:foreground ,nano-light-background
-                             :background ,nano-light-critical))
-                    (,dark  (:foreground ,nano-dark-background
-                             :background ,nano-dark-critical))))
+   `(nano-critical ((,light (:foreground ,nano-light-critical
+                             :weight normal))
+                    (,dark  (:foreground ,nano-dark-critical
+                             :weight normal))))
 
-   `(nano-critical-i ((,light (:foreground ,nano-light-critical
-                            ;; :background ,nano-light-background
-                                           ))
-                      (,dark  (:foreground ,nano-dark-critical
-                   ;; :background ,nano-dark-background
-                    ))))
+   `(nano-critical-i ((,light (:foreground ,nano-light-background
+                               :background ,nano-light-critical
+                               :weight normal))
+                      (,dark  (:foreground ,nano-dark-background
+                               :background ,nano-dark-critical
+                               :weight normal))))
    
    ;; --- Header & mode line -------------------------------------------
    
