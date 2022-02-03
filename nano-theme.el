@@ -1402,7 +1402,7 @@ background color that is barely perceptible."
     '(magit-signature-revoked                ((t (:inherit nano-default))))
     '(magit-signature-untrusted              ((t (:inherit nano-default))))
 
-    '(magit-tag                              ((t (:inherit nano-default-i))))
+    '(magit-tag                              ((t (:inherit nano-strong))))
 
 
     
