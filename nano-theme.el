@@ -925,7 +925,10 @@ background color that is barely perceptible."
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
                                          :strike-through t))))
-
+   ;; --- Citar --------------------------------------------------------
+   '(citar                          ((t (:inherit nano-faded))))
+   '(citar-highlight                ((t (:inherit nano-default))))
+   
    ;; --- Corfu --------------------------------------------------------
    '(corfu-annotations              ((t (:inherit nano-faded))))
    '(corfu-bar                      ((t (:inherit nano-default-i))))
