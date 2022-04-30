@@ -925,6 +925,13 @@ background color that is barely perceptible."
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
                                          :strike-through t))))
+   ;; --- Vertico --------------------------------------------------------
+   '(vertico-current                       ((t (:inherit (nano-strong
+                                                          nano-subtle)))))
+   '(vertico-group-separator               ((t (:inherit nano-faded))))
+   '(vertico-group-title                   ((t (:inherit nano-faded))))
+   '(vertico-multiline                     ((t (:inherit nano-faded))))
+
    ;; --- Citar --------------------------------------------------------
    '(citar                          ((t (:inherit nano-faded))))
    '(citar-highlight                ((t (:inherit nano-default))))
