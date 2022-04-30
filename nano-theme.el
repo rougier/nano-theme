@@ -1268,6 +1268,17 @@ background color that is barely perceptible."
     '(rst-transition                        ((t (:inherit nano-default))))
 
 
+    ;; ---SHR ---------------------------------------------------------
+    '(shr-abbreviation                    ((t (:inherit nano-popout))))
+    '(shr-h1                              ((t (:inherit nano-strong))))
+    '(shr-h2                              ((t (:inherit nano-strong))))
+    '(shr-h3                              ((t (:inherit nano-strong))))
+    '(shr-h4                              ((t (:inherit nano-strong))))
+    '(shr-h5                              ((t (:inherit nano-strong))))
+    '(shr-h6                              ((t (:inherit nano-strong))))
+    '(shr-link                           ((t (:inherit nano-salient))))
+    '(shr-selected-link      ((t (:inherit nano-salient nano-subtle))))
+    '(shr-strike-through                   ((t (:inherit nano-faded))))
     
     ;; --- Markdown ----------------------------------------------------
     '(markdown-blockquote-face              ((t (:inherit nano-default))))
