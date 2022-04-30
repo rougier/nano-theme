@@ -1008,13 +1008,15 @@ background color that is barely perceptible."
    ;; --- Org ----------------------------------------------------------
    '(org-archived                            ((t (:inherit nano-faded))))
    '(org-block                               ((t (:inherit highlight))))
-   '(org-block-begin-line                    ((t (:inherit nano-faded))))
-   '(org-block-end-line                      ((t (:inherit nano-faded))))
+   `(org-block-begin-line                    ((t (:inherit nano-faded
+                                                 :underline ,(face-background 'nano-subtle)))))
+   `(org-block-end-line                      ((t (:inherit nano-faded
+                                                 :overline ,(face-background 'nano-subtle)))))
    '(org-checkbox                            ((t (:inherit nano-faded))))
    '(org-checkbox-statistics-done            ((t (:inherit nano-faded))))
    '(org-checkbox-statistics-todo            ((t (:inherit nano-faded))))
    '(org-clock-overlay                       ((t (:inherit nano-faded))))
-   '(org-code                                ((t (:inherit nano-default))))
+   '(org-code                                ((t (:inherit nano-salient))))
    '(org-column                              ((t (:inherit nano-faded))))
    '(org-column-title                        ((t (:inherit nano-faded))))
    '(org-date                                ((t (:inherit nano-faded))))
