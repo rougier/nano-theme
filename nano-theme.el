@@ -1237,6 +1237,17 @@ background color that is barely perceptible."
     '(deft-time-face                       ((t (:inherit nano-salient))))
     '(deft-title-face                       ((t (:inherit nano-strong))))
 
+    ;; --- imenu-list ---------------------------------------------------
+    '(imenu-list-entry-face                 ((t (:inherit nano-default))))
+    '(imenu-list-entry-face-0                ((t (:inherit nano-strong))))
+    '(imenu-list-entry-face-1               ((t ( ))))
+    '(imenu-list-entry-face-2               ((t ( ))))
+    '(imenu-list-entry-face-3               ((t ( ))))
+    '(imenu-list-entry-subalist-face-0      ((t (:inherit nano-strong))))
+    '(imenu-list-entry-subalist-face-1      ((t ( ))))
+    '(imenu-list-entry-subalist-face-2      ((t ( ))))
+    '(imenu-list-entry-subalist-face-3      ((t ( ))))
+
     ;; --- Restructured text -------------------------------------------
     '(rst-adornment                           ((t (:inherit nano-faded))))
     '(rst-block                             ((t (:inherit nano-default))))
