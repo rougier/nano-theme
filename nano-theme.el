@@ -1399,7 +1399,7 @@ background color that is barely perceptible."
     '(magit-log-graph                        ((t (:inherit nano-default))))
 
     '(magit-mode-line-process                ((t (:inherit nano-default))))
-    '(magit-mode-line-process-error          ((t (:inherit nano-default))))
+    '(magit-mode-line-process-error          ((t (:inherit nano-error))))
 
     '(magit-process-ng                       ((t (:inherit nano-default))))
     '(magit-process-ok                       ((t (:inherit nano-default))))
