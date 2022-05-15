@@ -1379,7 +1379,7 @@ background color that is barely perceptible."
     '(magit-diff-removed                     ((t (:inherit (highlight nano-popout nano-strong)))))
     '(magit-diff-revision-summary            ((t (:inherit nano-popout))))
     '(magit-diff-their                       ((t (:inherit nano-default))))
-    '(magit-diff-whitespace-warning          ((t (:inherit nano-default))))
+    '(magit-diff-whitespace-warning          ((t (:inherit nano-subtle))))
     '(magit-diffstat-added                   ((t (:inherit nano-default))))
     '(magit-diffstat-removed                 ((t (:inherit nano-default))))
 
