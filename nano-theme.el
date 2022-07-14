@@ -1106,6 +1106,7 @@ background color that is barely perceptible."
    '(mu4e-replied-face                     ((t (:inherit nano-default))))
    '(mu4e-special-header-value-face        ((t (:inherit nano-default))))
    '(mu4e-system-face                        ((t (:inherit nano-faded))))
+   '(mu4e-related-face                       ((t (:inherit nano-faded))))
    '(mu4e-title-face                        ((t (:inherit nano-strong))))
    '(mu4e-trashed-face                       ((t (:inherit nano-faded))))
    '(mu4e-unread-face                       ((t (:inherit nano-strong))))
