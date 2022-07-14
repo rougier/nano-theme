@@ -96,6 +96,7 @@
 
 ;; Version 0.3.2
 ;; - Fix magit diff whitespace
+;; - Update mu4e faces (1.8.x release)
 
 ;; Version 0.3.1
 ;; - Modified vertico and org modes
