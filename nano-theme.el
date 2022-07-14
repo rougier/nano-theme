@@ -94,6 +94,9 @@
 
 ;;; NEWS:
 
+;; Version 0.3.2
+;; - Fix magit diff whitespace
+
 ;; Version 0.3.1
 ;; - Modified vertico and org modes
 ;; - Added imenu-list, ansi-color and SHR faces
