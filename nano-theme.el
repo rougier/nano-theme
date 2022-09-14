@@ -1,10 +1,10 @@
-;;; nano-dark-theme.el --- N Λ N O theme -*- lexical-binding: t -*-
+;;; nano-theme.el --- N Λ N O theme -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021 Free Software Foundation, Inc.
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.2.1
+;; Version: 0.3.1
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -37,12 +37,9 @@
 (require 'nano-theme-support)
 
 ;;;###autoload
-(deftheme nano-dark
-  "N Λ N O dark theme")
+(deftheme nano "N Λ N O theme.")
 
-(set-foreground-color nano-dark-foreground)
-(set-background-color nano-dark-background)
-(nano-theme 'nano-dark 'dark)
+(nano-theme 'nano (frame-parameter (selected-frame) 'background-mode))
 
-(provide-theme 'nano-dark)
-;;; nano-dark-theme.el ends here
+(provide-theme 'nano)
+;;; nano-theme.el ends here

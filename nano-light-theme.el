@@ -34,23 +34,15 @@
 ;;
 
 ;;; Code:
-(require 'nano-theme)
+(require 'nano-theme-support)
 
+;;;###autoload
 (deftheme nano-light
   "N Λ N O light theme")
 
 (set-foreground-color nano-light-foreground)
 (set-background-color nano-light-background)
-(nano-theme 'light)
-
-;;;###autoload
-(when load-file-name
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
+(nano-theme 'nano-light 'light)
 
 (provide-theme 'nano-light)
 ;;; nano-light-theme.el ends here
-
-
-
-
