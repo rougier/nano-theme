@@ -74,7 +74,7 @@ Alternatively, you can type:
 - `M-x: (nano-dark)` for dark theme
 
 If you want the same aspect as in the screenshots, you can also use
-`M-x: (nano-setup)` 
+`M-x: (nano-mode)` 
 
 
 ### Screenshots
