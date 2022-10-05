@@ -795,22 +795,31 @@ background color that is barely perceptible."
    '(custom-variable-obsolete      ((t (:inherit nano-faded))))
 
    ;; --- Company tooltip ----------------------------------------------
-    '(company-tooltip                      ((t (:inherit nano-subtle))))
-    '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
-    '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
+   '(company-tooltip                      ((t (:inherit nano-subtle))))
+   '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
+   '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
 
-    '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
-    '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
+   '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
+   '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
 
-    '(company-tooltip-scrollbar-thumb      ((t (:inherit nano-default-i))))
-    '(company-tooltip-scrollbar-track      ((t (:inherit nano-faded-i))))
+   '(company-tooltip-scrollbar-thumb      ((t (:inherit nano-default-i))))
+   '(company-tooltip-scrollbar-track      ((t (:inherit nano-faded-i))))
 
-    '(company-tooltip-common               ((t (:inherit nano-strong))))
-    '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
+   '(company-tooltip-common               ((t (:inherit nano-strong))))
+   '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
                                                 :weight normal))))
-    '(company-tooltip-annotation           ((t (:inherit nano-default))))
-    '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
+   '(company-tooltip-annotation           ((t (:inherit nano-default))))
+   '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
 
+   ;; --- Compilation --------------------------------------------------
+   '(compilation-error ((t (:inherit nano-critical))))
+   '(compilation-info ((t (:inherit nano-default))))
+   '(compilation-warning ((t (:inherit nano-popout))))
+   '(compilation-line-number ((t (:inherit nano-default))))
+   '(compilation-column-number ((t (:inherit nano-default))))
+   '(compilation-mode-line-run ((t (:inherit nano-default-i))))
+   '(compilation-mode-line-exit ((t (:inherit nano-default-i))))
+   '(compilation-mode-line-fail ((t (:inherit nano-critical))))
 
    ;; --- Buttons ------------------------------------------------------
    `(custom-button
