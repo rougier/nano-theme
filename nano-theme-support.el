@@ -408,6 +408,7 @@ background color that is barely perceptible."
                  '(internal-border-width . 24)
                  '(left-fringe . 0)
                  '(right-fringe . 0)
+                 '(undecorated-round . t) ;; emacs-plu@29 only
                  '(tool-bar-lines . 0)
                  '(menu-bar-lines . 0))))
 
