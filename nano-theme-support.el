@@ -4,7 +4,7 @@
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.3.1
+;; Version: 0.3.2
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -97,6 +97,7 @@
 ;; Version 0.3.2
 ;; - Fix magit diff whitespace
 ;; - Update mu4e faces (1.8.x release)
+;; - Added rounded corners for emacs-plus@29
 
 ;; Version 0.3.1
 ;; - Modified vertico and org modes
