@@ -1,10 +1,10 @@
 ;;; nano-dark-theme.el --- N Λ N O theme -*- lexical-binding: t -*-
 
-;; Copyright (C) 2021 Free Software Foundation, Inc.
+;; Copyright (C) 2021,2022 Free Software Foundation, Inc.
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.2.1
+;; Version: 0.3.2
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
