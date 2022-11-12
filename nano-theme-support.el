@@ -4,7 +4,7 @@
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.3.3
+;; Version: 0.3.4
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -1004,7 +1004,8 @@ background color that is barely perceptible."
    '(org-agenda-calendar-sexp       ((t (:inherit nano-salient))))
    '(org-agenda-clocking            ((t (:inherit nano-faded))))
    '(org-agenda-column-dateline     ((t (:inherit nano-faded))))
-   '(org-agenda-current-time        ((t (:inherit (nano-strong nano-salient))))
+   '(org-agenda-current-time        ((t (:inherit (nano-strong
+                                                   nano-salient)))))
    '(org-agenda-date                ((t (:inherit nano-strong))))
    '(org-agenda-date-today          ((t (:inherit (nano-salient
                                                    nano-strong)))))
