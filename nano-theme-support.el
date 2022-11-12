@@ -523,7 +523,7 @@ background color that is barely perceptible."
 (defun nano-theme (theme mode)
   "Apply the nano THEME according to MODE which can be 'dark or 'light."
 
-   (message (format "Theme applied: %s" mode))
+  ;; (message (format "Theme applied: %s" mode))
 
   (advice-add 'frame-list :filter-return #'nano-frame-list-advice-normal)
 
