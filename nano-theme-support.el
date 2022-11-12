@@ -1000,8 +1000,8 @@ background color that is barely perceptible."
    '(org-agenda-calendar-sexp       ((t (:inherit nano-salient))))
    '(org-agenda-clocking            ((t (:inherit nano-faded))))
    '(org-agenda-column-dateline     ((t (:inherit nano-faded))))
-   '(org-agenda-current-time        ((t (:inherit nano-strong))))
-   '(org-agenda-date                ((t (:inherit nano-salient))))
+   '(org-agenda-current-time        ((t (:inherit (nano-strong nano-salient))))
+   '(org-agenda-date                ((t (:inherit nano-strong))))
    '(org-agenda-date-today          ((t (:inherit (nano-salient
                                                    nano-strong)))))
    '(org-agenda-date-weekend        ((t (:inherit nano-faded))))
