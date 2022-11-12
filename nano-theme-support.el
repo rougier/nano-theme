@@ -4,7 +4,7 @@
 
 ;; Maintainer: Nicolas P. Rougier <Nicolas.Rougier@inria.fr>
 ;; URL: https://github.com/rougier/nano-theme
-;; Version: 0.3.2
+;; Version: 0.3.3
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: theme, dark, light
 
@@ -93,6 +93,10 @@
 ;; to benefit from all the fancy glyphs. See https://www.nerdfonts.com.
 
 ;;; NEWS:
+
+;; Version 0.3.3
+;; - Removed debug message
+;; - Minor changes in agenda
 
 ;; Version 0.3.2
 ;; - Fix magit diff whitespace
