@@ -1461,7 +1461,10 @@ background color that is barely perceptible."
 
     '(magit-tag                              ((t (:inherit nano-strong))))
 
-
+    ;; --- Transient ------------------------------------------------------
+    ;; Set only faces that influence Magit.  See:
+    ;; <https://github.com/rougier/nano-theme/issues/43>
+    '(transient-value                        ((t (:inherit default))))
 
     ;; --- ANSI colors ----------------------------------------------------
 
