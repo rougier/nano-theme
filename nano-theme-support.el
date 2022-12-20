@@ -150,6 +150,10 @@
   "Whether to use font stack"
   :type 'boolean :group 'nano-theme-fonts)
 
+(defcustom nano-window-divider-show nil
+  "Whether to show the vertical window-divider"
+  :type 'boolean :group 'nano-theme)
+
 (defface nano-mono
   '((t (:family "Roboto Mono"
         :height 140
@@ -584,6 +588,22 @@ background color that is barely perceptible."
          `(nano-strong ((,light (:weight bold :foreground ,nano-light-strong))
                         (,dark  (:weight bold :foreground ,nano-dark-strong))))))
 
+    ;; --- Window divider ----------------------------------------------
+    (if nano-window-divider-show
+        (custom-theme-set-faces theme
+         `(window-divider ((,light (:foreground ,nano-light-foreground))
+                           (,dark  (:foreground ,nano-dark-foreground))))
+         `(vertical-border ((,light (:foreground ,nano-light-foreground))
+                            (,dark  (:foreground ,nano-dark-foreground)))))
+      (custom-theme-set-faces theme
+       `(window-divider ((,light (:foreground ,nano-light-background))
+                         (,dark  (:foreground ,nano-dark-background))))
+       `(vertical-border ((,light (:foreground ,nano-light-background))
+                          (,dark  (:foreground ,nano-dark-background))))))
+    (custom-theme-set-faces theme
+     '(window-divider-first-pixel ((t (:inherit window-divider))))
+     '(window-divider-last-pixel ((t (:inherit window-divider)))))
+
 
     (custom-theme-set-faces theme
 
@@ -748,14 +768,6 @@ background color that is barely perceptible."
    '(tty-menu-disabled-face        ((t (:inherit nano-faded-i))))
    '(tty-menu-enabled-face         ((t (:inherit nano-default-i))))
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
-
-   ;; --- Windows divider ----------------------------------------------
-   `(window-divider                ((,light (:foreground ,nano-light-background))
-                        (,dark  (:foreground ,nano-dark-background))))
-   '(window-divider-first-pixel    ((t (:inherit window-divider))))
-   '(window-divider-last-pixel     ((t (:inherit window-divider))))
-   `(vertical-border               ((,light (:foreground ,nano-light-background))
-                        (,dark  (:foreground ,nano-dark-background))))
 
    ;; --- Tab bar ------------------------------------------------------
    '(tab-bar                       ((t (:inherit default))))
