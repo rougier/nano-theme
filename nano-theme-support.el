@@ -1425,8 +1425,8 @@ background color that is barely perceptible."
     '(magit-header-line-key                  ((t (:inherit nano-default))))
     '(magit-header-line-log-select           ((t (:inherit nano-default))))
 
-    '(magit-keyword                          ((t (:inherit nano-default))))
-    '(magit-keyword-squash                   ((t (:inherit nano-default))))
+    '(magit-keyword                          ((t (:inherit nano-salient))))
+    '(magit-keyword-squash                   ((t (:inherit nano-salient))))
 
     '(magit-log-author                       ((t (:inherit nano-default))))
     '(magit-log-date                         ((t (:inherit nano-default))))
