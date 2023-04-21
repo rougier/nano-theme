@@ -150,6 +150,10 @@
   "Whether to use font stack"
   :type 'boolean :group 'nano-theme-fonts)
 
+(defcustom nano-window-divider-show nil
+  "Whether to show the vertical window-divider"
+  :type 'boolean :group 'nano-theme)
+
 (defface nano-mono
   '((t (:family "Roboto Mono"
         :height 140
@@ -584,6 +588,22 @@ background color that is barely perceptible."
          `(nano-strong ((,light (:weight bold :foreground ,nano-light-strong))
                         (,dark  (:weight bold :foreground ,nano-dark-strong))))))
 
+    ;; --- Window divider ----------------------------------------------
+    (if nano-window-divider-show
+        (custom-theme-set-faces theme
+         `(window-divider ((,light (:foreground ,nano-light-foreground))
+                           (,dark  (:foreground ,nano-dark-foreground))))
+         `(vertical-border ((,light (:foreground ,nano-light-foreground))
+                            (,dark  (:foreground ,nano-dark-foreground)))))
+      (custom-theme-set-faces theme
+       `(window-divider ((,light (:foreground ,nano-light-background))
+                         (,dark  (:foreground ,nano-dark-background))))
+       `(vertical-border ((,light (:foreground ,nano-light-background))
+                          (,dark  (:foreground ,nano-dark-background))))))
+    (custom-theme-set-faces theme
+     '(window-divider-first-pixel ((t (:inherit window-divider))))
+     '(window-divider-last-pixel ((t (:inherit window-divider)))))
+
 
     (custom-theme-set-faces theme
 
@@ -749,14 +769,6 @@ background color that is barely perceptible."
    '(tty-menu-enabled-face         ((t (:inherit nano-default-i))))
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
 
-   ;; --- Windows divider ----------------------------------------------
-   `(window-divider                ((,light (:foreground ,nano-light-background))
-                                    (,dark  (:foreground ,nano-dark-background))))
-   '(window-divider-first-pixel    ((t (:inherit window-divider))))
-   '(window-divider-last-pixel     ((t (:inherit window-divider))))
-   `(vertical-border               ((,light (:foreground ,nano-light-background))
-                                    (,dark  (:foreground ,nano-dark-background))))
-
    ;; --- Tab bar ------------------------------------------------------
    '(tab-bar                       ((t (:inherit default))))
    '(tab-bar-tab                   ((t (:inherit default))))
@@ -801,22 +813,31 @@ background color that is barely perceptible."
    '(custom-variable-obsolete      ((t (:inherit nano-faded))))
 
    ;; --- Company tooltip ----------------------------------------------
-    '(company-tooltip                      ((t (:inherit nano-subtle))))
-    '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
-    '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
+   '(company-tooltip                      ((t (:inherit nano-subtle))))
+   '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
+   '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
 
-    '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
-    '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
+   '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
+   '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
 
-    '(company-tooltip-scrollbar-thumb      ((t (:inherit nano-default-i))))
-    '(company-tooltip-scrollbar-track      ((t (:inherit nano-faded-i))))
+   '(company-tooltip-scrollbar-thumb      ((t (:inherit nano-default-i))))
+   '(company-tooltip-scrollbar-track      ((t (:inherit nano-faded-i))))
 
-    '(company-tooltip-common               ((t (:inherit nano-strong))))
-    '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
+   '(company-tooltip-common               ((t (:inherit nano-strong))))
+   '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
                                                 :weight normal))))
-    '(company-tooltip-annotation           ((t (:inherit nano-default))))
-    '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
+   '(company-tooltip-annotation           ((t (:inherit nano-default))))
+   '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
 
+   ;; --- Compilation --------------------------------------------------
+   '(compilation-error ((t (:inherit nano-critical))))
+   '(compilation-info ((t (:inherit nano-default))))
+   '(compilation-warning ((t (:inherit nano-popout))))
+   '(compilation-line-number ((t (:inherit nano-default))))
+   '(compilation-column-number ((t (:inherit nano-default))))
+   '(compilation-mode-line-run ((t (:inherit nano-default-i))))
+   '(compilation-mode-line-exit ((t (:inherit nano-default-i))))
+   '(compilation-mode-line-fail ((t (:inherit nano-critical))))
 
    ;; --- Buttons ------------------------------------------------------
    `(custom-button
@@ -1405,8 +1426,8 @@ background color that is barely perceptible."
     '(magit-header-line-key                  ((t (:inherit nano-default))))
     '(magit-header-line-log-select           ((t (:inherit nano-default))))
 
-    '(magit-keyword                          ((t (:inherit nano-default))))
-    '(magit-keyword-squash                   ((t (:inherit nano-default))))
+    '(magit-keyword                          ((t (:inherit nano-salient))))
+    '(magit-keyword-squash                   ((t (:inherit nano-salient))))
 
     '(magit-log-author                       ((t (:inherit nano-default))))
     '(magit-log-date                         ((t (:inherit nano-default))))
@@ -1453,7 +1474,10 @@ background color that is barely perceptible."
 
     '(magit-tag                              ((t (:inherit nano-strong))))
 
-
+    ;; --- Transient ------------------------------------------------------
+    ;; Set only faces that influence Magit.  See:
+    ;; <https://github.com/rougier/nano-theme/issues/43>
+    '(transient-value                        ((t (:inherit default))))
 
     ;; --- ANSI colors ----------------------------------------------------
 
