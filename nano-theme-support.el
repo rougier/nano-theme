@@ -751,11 +751,11 @@ background color that is barely perceptible."
 
    ;; --- Windows divider ----------------------------------------------
    `(window-divider                ((,light (:foreground ,nano-light-background))
-                        (,dark  (:foreground ,nano-dark-background))))
+                                    (,dark  (:foreground ,nano-dark-background))))
    '(window-divider-first-pixel    ((t (:inherit window-divider))))
    '(window-divider-last-pixel     ((t (:inherit window-divider))))
    `(vertical-border               ((,light (:foreground ,nano-light-background))
-                        (,dark  (:foreground ,nano-dark-background))))
+                                    (,dark  (:foreground ,nano-dark-background))))
 
    ;; --- Tab bar ------------------------------------------------------
    '(tab-bar                       ((t (:inherit default))))
@@ -1101,10 +1101,11 @@ background color that is barely perceptible."
    '(mu4e-footer-face                        ((t (:inherit nano-faded))))
    '(mu4e-forwarded-face                   ((t (:inherit nano-default))))
    '(mu4e-header-face                      ((t (:inherit nano-default))))
-   '(mu4e-header-highlight-face                ((t (:inherit highlight))))
+   '(mu4e-header-highlight-face               ((t (:inherit highlight))))
    '(mu4e-header-key-face                   ((t (:inherit nano-strong))))
    '(mu4e-header-marks-face                  ((t (:inherit nano-faded))))
    '(mu4e-header-title-face                 ((t (:inherit nano-strong))))
+   '(mu4e-header-field-face                 ((t (:inherit nano-strong))))
    '(mu4e-header-value-face                ((t (:inherit nano-default))))
    '(mu4e-highlight-face                    ((t (:inherit nano-popout))))
    '(mu4e-link-face                        ((t (:inherit nano-salient))))
