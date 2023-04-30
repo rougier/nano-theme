@@ -1309,6 +1309,7 @@ background color that is barely perceptible."
 
     ;; ---SHR ---------------------------------------------------------
     '(shr-abbreviation                    ((t (:inherit nano-popout))))
+    '(shr-text                            ((t (:inherit nano-default))))
     '(shr-h1                              ((t (:inherit nano-strong))))
     '(shr-h2                              ((t (:inherit nano-strong))))
     '(shr-h3                              ((t (:inherit nano-strong))))
