@@ -437,7 +437,7 @@ background color that is barely perceptible."
                           'wrap (make-glyph-code ?- 'nano-faded))
 
   ;; Nerd font for glyph icons
-  (let ((roboto-nerd (font-spec :name "RobotoMono Nerd Font Mono")))
+  (let ((roboto-nerd (font-spec :name "RobotoMono Nerd Font")))
     (if (find-font roboto-nerd)
         (set-fontset-font t '(#xe000 . #xffdd) roboto-nerd)
       (message "Roboto Mono Nerd font has not been found on your system"))))
@@ -459,7 +459,6 @@ background color that is barely perceptible."
 ;;       (push attribute properties)
 ;;       (push tag properties)))))
 ;;       properties)))
-
 
 (defun nano-new-frame (&optional mode)
   "This funcion creates a new frame in light or dark MODE."
