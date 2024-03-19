@@ -961,6 +961,12 @@ background color that is barely perceptible."
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
                                          :strike-through t))))
+
+   ;; --- icomplete --------------------------------------------------------
+   '(icomplete-first-match          ((t (:inherit nano-strong))))
+   '(icomplete-selected-match       ((t (:inherit nano-strong))))
+   '(icomplete-section              ((t (:inherit nano-strong))))
+
    ;; --- Vertico --------------------------------------------------------
    '(vertico-current                       ((t (:inherit (nano-strong
                                                           nano-subtle)))))
