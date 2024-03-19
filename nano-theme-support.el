@@ -1306,7 +1306,11 @@ background color that is barely perceptible."
     '(rst-reference                         ((t (:inherit nano-salient))))
     '(rst-transition                        ((t (:inherit nano-default))))
 
-
+    ;; --- Elpher ----------------------------------------------------
+    '(elpher-gemini-heading1                 ((t (:inherit nano-strong))))
+    '(elpher-gemini-heading2                 ((t (:inherit nano-strong))))
+    '(elpher-gemini-heading3                 ((t (:inherit nano-strong))))
+ 
     ;; ---SHR ---------------------------------------------------------
     '(shr-abbreviation                    ((t (:inherit nano-popout))))
     '(shr-text                            ((t (:inherit nano-default))))
