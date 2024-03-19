@@ -781,6 +781,11 @@ background color that is barely perceptible."
    `(line-number-major-tick       ((t (:inherit nano-default))))
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
 
+   ;; --- Diff HL (fringe mode) ----------------------------------------
+   '(diff-hl-change                  ((t (:inherit nano-faded-i))))
+   '(diff-hl-insert                  ((t (:inherit nano-salient-i))))
+   '(diff-hl-delete                  ((t (:inherit nano-critical-i))))
+
    ;; --- Font lock ----------------------------------------------------
    '(font-lock-comment-face        ((t (:inherit nano-faded))))
    '(font-lock-doc-face            ((t (:inherit nano-faded))))
