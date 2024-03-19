@@ -777,8 +777,8 @@ background color that is barely perceptible."
 
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
-   '(line-number-current-line     ((t (:inherit nil))))
-   `(line-number-major-tick       ((t (:inherit nano-faded))))
+   '(line-number-current-line     ((t (:inherit (nano-string hl-line)))))
+   `(line-number-major-tick       ((t (:inherit nano-default))))
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
 
    ;; --- Font lock ----------------------------------------------------
