@@ -400,13 +400,13 @@ background color that is barely perceptible."
   (setq blink-cursor-mode nil)
 
   ;; No tooltips
-  (tooltip-mode -1)
+  ;; (tooltip-mode -1)
 
   ;; No scroll bars
-  (scroll-bar-mode -1)
+  ;; (scroll-bar-mode -1)
 
   ;; No toolbar
-  (tool-bar-mode -1)
+  ;; (tool-bar-mode -1)
 
   ;; Default frame settings
   (setq default-frame-alist
@@ -418,6 +418,7 @@ background color that is barely perceptible."
                  '(left-fringe . 0)
                  '(right-fringe . 0)
                  '(undecorated-round . t) ;; emacs-plu@29 only
+                 '(scroll-bar-mode . -1)
                  '(tool-bar-lines . 0)
                  '(menu-bar-lines . 0))))
 
