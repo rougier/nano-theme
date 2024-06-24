@@ -94,6 +94,10 @@
 
 ;;; NEWS:
 
+;; Version 0.3.5
+;; - Added diff-hl faces
+;; - Modified line-num er faces
+
 ;; Version 0.3.3
 ;; - Removed debug message
 ;; - Minor changes in agenda
