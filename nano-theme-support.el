@@ -371,8 +371,8 @@ background color that is barely perceptible."
   ;; No dialog box
   (setq use-dialog-box nil)
 
-  ;; No popup windows
-  (setq pop-up-windows nil)
+  ;; No popup windows (see fix #32)
+  ;; (setq pop-up-windows nil)
 
   ;; No empty line indicators
   (setq indicate-empty-lines nil)
