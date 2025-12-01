@@ -160,13 +160,6 @@
 
 ;;; Code:
 
-(defgroup nano-theme nil
-  "NANO theme customization.
-
-Known packages are listed below (Subgroups). If your preferred package
-is not present, you can make a pull request to add it."
-  :group 'faces)
-
 (defcustom nano-theme-weights
   '((regular . bold) . (light . regular))
   "Font weights for regular and bold faces, depending on Emacs display mode (TTY or GUI).
@@ -416,11 +409,6 @@ from all variables listed in `nano-theme-packages`."
    '(term-color-yellow         ((t (:foreground "#FFEE58"))))   ;; Material yellow L400
    '(term-color-bright-yellow  ((t (:foreground "#FFF9C4")))))) ;; Material yellow L100
 
-(defgroup nano-theme-emacs nil
-  "Emacs faces"
-  :tag "Emacs faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-emacs-completion
   '((completions-annotations        . nano-faded)
     (completions-common-part        . nano-salient)
@@ -638,11 +626,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-emacs)
 
-(defgroup nano-theme-org nil
-  "Org faces"
-  :tag "Org faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-org-headings
   '((org-level-1                 . nano-strong)
     (org-level-2                 . nano-strong)
@@ -777,11 +760,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-org)
 
-(defgroup nano-theme-dired nil
-  "Dired faces"
-  :tag "Dired faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-dired
   '((dired-ignored              . nano-faded)
     (dired-special              . nano-highlight)
@@ -800,11 +778,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-dired)
 
-(defgroup nano-theme-vertico nil
-  "Vertico faces"
-  :tag "Vertico faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-vertico
   '((vertico-current             . nano-subtle)
     (vertico-group-separator     . nano-faded)
@@ -814,11 +787,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(vertico)"
   :type nano-theme-mapping-type
   :group 'nano-theme-vertico)
-
-(defgroup nano-theme-marginalia nil
-  "Marginalia faces"
-  :tag "Marginalia faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-marginalia-file
   '((marginalia-file-priv-rare         . nano-faded)
@@ -868,11 +836,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(marginalia-metadata)"
   :type nano-theme-mapping-type
   :group 'nano-theme-marginalia)
-
-(defgroup nano-theme-magit nil
-  "Magit faces"
-  :tag "Magit faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-magit-diff-faces
   '((magit-diff-added             . nano-strong)
@@ -939,11 +902,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defgroup nano-theme-corfu nil
-  "Corfu faces"
-  :tag "Corfu faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-corfu-faces
   '((corfu-default     . nano-subtle)
     (corfu-current     . nano-faded-i)
@@ -957,11 +915,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(corfu faces)"
   :type nano-theme-mapping-type
   :group 'nano-theme-corfu)
-
-(defgroup nano-theme-mu4e nil
-  "Mu4e faces"
-  :tag "Mu4e faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-mu4e-headers
   '((mu4e-header-face             . nano-default)
@@ -1010,11 +963,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(mu4e compose)"
   :type nano-theme-mapping-type
   :group 'nano-theme-mu4e)
-
-(defgroup nano-theme-gnus nil
-  "Gnus faces"
-  :tag "Gnus faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-gnus-citations
   '((gnus-cite-1   . nano-faded)
@@ -1119,11 +1067,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-gnus)
 
-(defgroup nano-theme-ledger nil
-  "Ledger faces"
-  :tag "Ledger faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-ledger-reconciler
   '((ledger-reconcile-last-balance-equals-target-face . nano-strong)
     (ledger-font-reconciler-pending-face                . nano-faded)
@@ -1222,11 +1165,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-ledger)
 
-(defgroup nano-theme-elfeed nil
-  "Elfeed faces"
-  :tag "Elfeed faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-elfeed-search
   '((elfeed-search-title-face        . nano-default)
     (elfeed-search-unread-title-face . nano-strong)
@@ -1252,11 +1190,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-elfeed)
 
-(defgroup nano-theme-deft nil
-  "Deft faces"
-  :tag "Deft faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-deft
   '((deft-time-face                 . nano-faded)
     (deft-title-face                . nano-strong)
@@ -1269,11 +1202,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(deft)"
   :type nano-theme-mapping-type
   :group 'nano-theme-deft)
-
-(defgroup nano-theme-message nil
-  "Message faces"
-  :tag "Message faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-message-headers
   '((message-header-name       . nano-default)
@@ -1323,12 +1251,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-emacs)
 
-
-(defgroup nano-theme-epa nil
-  "EPA (enigmail)"
-  :tag "EPA (enigmail)"
-  :group 'nano-theme)
-
 (defcustom nano-theme-epa
   '((epa-field-body                 . nano-default)
     (epa-field-name                 . nano-strong)
@@ -1342,11 +1264,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(epa)"
   :type nano-theme-mapping-type
   :group 'nano-theme-epa)
-
-(defgroup nano-theme-popup nil
-  "Popup menus faces"
-  :tag "Popup menus faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-popup
   '((popup-face                       . nano-highlight)
@@ -1364,11 +1281,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-popup)
 
-(defgroup nano-theme-diff nil
-  "Diff faces"
-  :tag "Diff faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-diff
   '((diff-header                    . nano-faded)
     (diff-file-header               . nano-strong)
@@ -1384,11 +1296,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-diff)
 
-(defgroup nano-theme-icomplete nil
-  "Icomplete faces"
-  :tag "Icomplete faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-icomplete
   '((icomplete-first-match          . nano-strong)
     (icomplete-selected-match       . nano-strong)
@@ -1398,11 +1305,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-icomplete)
 
-
-(defgroup nano-theme-markdown nil
-  "Markdown faces"
-  :tag "Markdown faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-markdown-structure
   '((markdown-header-face-1            . nano-strong)
@@ -1463,11 +1365,6 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-markdown)
 
-(defgroup nano-theme-shr nil
-  "SHR (Simple HTML Renderer) faces"
-  :tag "SHR faces"
-  :group 'nano-theme)
-
 (defcustom nano-theme-shr
   '((shr-h1               . nano-strong)
     (shr-h2               . nano-strong)
@@ -1488,11 +1385,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(shr faces)"
   :type nano-theme-mapping-type
   :group 'nano-theme-shr)
-
-(defgroup nano-theme-elpher nil
-  "Elpher (Gemini/HTML/Telnet) faces"
-  :tag "Elpher faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-elpher
   '((elpher-gemini-preformatted-toggle  . nano-subtle)
@@ -1518,11 +1410,6 @@ from all variables listed in `nano-theme-packages`."
   :tag "(elpher faces)"
   :type nano-theme-mapping-type
   :group 'nano-theme-elpher)
-
-(defgroup nano-theme-buffer-box nil
-  "Buffer box  faces"
-  :tag "Buffer-vox faces"
-  :group 'nano-theme)
 
 (defcustom nano-theme-buffer-box
   '((buffer-box-face-active   . nano-default)

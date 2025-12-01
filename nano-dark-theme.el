@@ -26,15 +26,16 @@
 ;;; Commentary:
 ;; Dark version of NANO theme
 
+
 ;;; Code:
-(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-dark "Nano dark theme")
+(require 'nano-theme-custom)
+(require 'nano-theme-support)
 (nano-theme-build-bases 'nano-dark)
 (nano-theme-build-faces 'nano-dark)
 (nano-theme-build-ansi-term 'nano-dark)
-
 (provide-theme 'nano-dark)
 
 ;;; nano-dark-theme.el ends here

@@ -27,14 +27,14 @@
 ;; Gray version of NANO theme
 
 ;;; Code:
-(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-gray "Nano gray theme")
+(require 'nano-theme-custom)
+(require 'nano-theme-support)
 (nano-theme-build-bases 'nano-gray)
 (nano-theme-build-faces 'nano-gray)
 (nano-theme-build-ansi-term 'nano-gray)
-
 (provide-theme 'nano-gray)
 
 ;;; nano-gray-theme.el ends here

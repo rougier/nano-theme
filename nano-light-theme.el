@@ -26,15 +26,16 @@
 ;;; Commentary:
 ;; Light version of NANO theme
 
+
 ;;; Code:
-(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-light "Nano light theme")
+(require 'nano-theme-custom)
+(require 'nano-theme-support)
 (nano-theme-build-bases 'nano-light)
 (nano-theme-build-faces 'nano-light)
 (nano-theme-build-ansi-term 'nano-light)
-
 (provide-theme 'nano-light)
 
 ;;; nano-light-theme.el ends here

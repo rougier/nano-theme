@@ -27,14 +27,14 @@
 ;; Monochrome version of NANO theme
 
 ;;; Code:
-(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-mono "Nano monochrome theme")
+(require 'nano-theme-custom)
+(require 'nano-theme-support)
 (nano-theme-build-bases 'nano-mono)
 (nano-theme-build-faces 'nano-mono)
 (nano-theme-build-ansi-term 'nano-mono)
-
 (provide-theme 'nano-mono)
 
 ;;; nano-mono-theme.el ends here
