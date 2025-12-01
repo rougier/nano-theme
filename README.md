@@ -1,10 +1,11 @@
-## GNU Emacs / N Λ N O Theme 
+## GNU Emacs / NANO Theme 
 
-A consistent theme for GNU Emacs. The light theme is based on [Material
-colors](https://material.io/) and the dark theme is based on [Nord
-colors](https://www.nordtheme.com/).
+A consistent theme for GNU Emacs. The light anf gray themes are based
+on [Material colors](https://material.io/), the dark theme is based
+on [Nord colors](https://www.nordtheme.com/) and the monochrome theme
+comes with two shades of gray.
 
-The theme is based on a set of six faces (only):
+The theme is based on a set of seven faces (and their variants):
 
 - **Critical face** is for information that requires immediate action.
 
@@ -42,40 +43,27 @@ The theme is based on a set of six faces (only):
 
   > It is important to not disturb too strongly the reading of
   > information and this can be made by setting a very light
-  > background color that is barely perceptible.
+  > background color.
+  
+- **Higlight face** is used to highlight a physical area on the screen.
 
+  > Highlight is mostly used to transiently highlight a region by
+  > setting a very light background color that is barely
+  > perceptible.
+ 
 
 ### Installation
 
-Install with [straight.el](https://github.com/raxod502/straight.el):
+Install direclty from ELPA repository:
 
 ```
-(straight-use-package '(nano-theme :type git :host github
-                                   :repo "rougier/nano-theme"))
-```
-
-... or install with [`quelpa`](https://github.com/quelpa/quelpa):
-
-```emacs-lisp
-(use-package nano-theme
-  :ensure nil
-  :defer t
-  :quelpa (nano-theme
-           :fetcher github
-           :repo "rougier/nano-theme"))
+(package-install 'nano-theme)
 ```
 
 ### Usage
 
-Load theme directly: `M-x: (load-theme 'nano t)`  
-
-Alternatively, you can type:
-- `M-x: (nano-light)` for light theme
-- `M-x: (nano-dark)` for dark theme
-
-If you want the same aspect as in the screenshots, you can also use
-`M-x: (nano-mode)` 
-
+Load theme directly via `M-x: (load-theme 'nano-light t)`  
+(other themes are nano-gray, nano-dark and nano-mono)
 
 ### Screenshots
 
