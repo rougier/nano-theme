@@ -210,13 +210,13 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
      (symbol :tag "Face")
      (choice :tag "NANO"
              :format "%t: %[%{BASE%}%]  %v"
-             
+
              (choice :tag ,(propertize "default" 'face 'nano-default)
                      :format "%t: %[%{VARIANT%}%]  %v"
                      (const :tag ,(propertize " regular " 'face 'nano-default)    nano-default)
                      (const :tag ,(propertize " strong "  'face 'nano-default-s)  nano-default-s)
                      (const :tag ,(propertize " inverse " 'face 'nano-default-i)  nano-default-i))
-             
+
              (choice :tag ,(propertize " strong " 'face 'nano-strong)
                      :format "%t: %[%{VARIANT%}%]  %v"
                      (const :tag ,(propertize " regular " 'face 'nano-strong)    nano-strong)
@@ -234,7 +234,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
                      (const :tag ,(propertize " regular " 'face 'nano-popout)    nano-popout)
                      (const :tag ,(propertize " strong "  'face 'nano-popout-s)  nano-popout-s)
                      (const :tag ,(propertize " inverse " 'face 'nano-popout-i)  nano-popout-i))
-             
+
              (choice :tag ,(propertize "salient" 'face 'nano-salient)
                      :format "%t: %[%{VARIANT%}%]  %v"
                      (const :tag ,(propertize " regular " 'face 'nano-salient)    nano-salient)
@@ -251,8 +251,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
                      :format "%t: %[%{VARIANT%}%]  %v"
                      (const :tag ,(propertize " regular " 'face 'nano-highlight)    nano-highlight)
                      (const :tag ,(propertize " strong "  'face 'nano-highlight-s)  nano-highlight-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-highlight-i)  nano-highlight-i))             
-                          
+                     (const :tag ,(propertize " inverse " 'face 'nano-highlight-i)  nano-highlight-i))
              (choice :tag ,(propertize "critical" 'face 'nano-critical)
                      :format "%t: %[%{VARIANT%}%]  %v"
                      (const :tag ,(propertize " regular " 'face 'nano-critical)    nano-critical)
@@ -350,9 +349,24 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
      theme
      `(default ((t (:foreground ,fg :background ,bg :weight ,regular)))))))
 
+(defun nano-theme-build-faces (theme)
+  "Automatically generate inherited faces for THEME
+from all variables listed in `nano-theme-packages`."
+  (dolist (var nano-theme-packages)
+    (let ((faces-alist (symbol-value var)))
+      (when (listp faces-alist)
+        (dolist (entry faces-alist)
+          (let ((face (car entry))
+                (base (cdr entry)))
+            (message "Building %s" face)
+            (when (symbolp face)
+              (custom-theme-set-faces
+               theme
+               `(,face ((t (:inherit ,base))))))))))))
+
 (defun nano-theme-build-ansi-term (theme)
   "Generate ansi color faces for THEME."
-  
+
   (custom-theme-set-faces
    theme
    '(ansi-color-black          ((t (:inherit nano-default))))
@@ -383,8 +397,8 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
    '(ansi-color-bright-magenta ((t (:foreground "#E1BEE7"))))   ;; Material purple L100
    '(ansi-color-red            ((t (:foreground "#EF5350"))))   ;; Material red L400
    '(ansi-color-bright-red     ((t (:foreground "#FFCDD2"))))   ;; Material red L100
-   '(ansi-color-white          ((t (:inherit nano-default))))   ;; Default white 
-   '(ansi-color-bright-white   ((t (:inherit nano-default))))   ;; Default white 
+   '(ansi-color-white          ((t (:inherit nano-default))))   ;; Default white
+   '(ansi-color-bright-white   ((t (:inherit nano-default))))   ;; Default white
    '(ansi-color-yellow         ((t (:foreground "#FFEE58"))))   ;; Material yellow L400
    '(ansi-color-bright-yellow  ((t (:foreground "#FFF9C4"))))   ;; Material yellow L100
 
@@ -398,13 +412,10 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
    '(term-color-bright-magenta ((t (:foreground "#E1BEE7"))))   ;; Material purple L100
    '(term-color-red            ((t (:foreground "#EF5350"))))   ;; Material red L400
    '(term-color-bright-red     ((t (:foreground "#FFCDD2"))))   ;; Material red L100
-   '(term-color-white          ((t (:inherit nano-default))))   ;; Default white 
-   '(term-color-bright-white   ((t (:inherit nano-default))))   ;; Default white 
+   '(term-color-white          ((t (:inherit nano-default))))   ;; Default white
+   '(term-color-bright-white   ((t (:inherit nano-default))))   ;; Default white
    '(term-color-yellow         ((t (:foreground "#FFEE58"))))   ;; Material yellow L400
    '(term-color-bright-yellow  ((t (:foreground "#FFF9C4")))))) ;; Material yellow L100
-
-   
-
 
 (defgroup nano-theme-emacs nil
   "Emacs faces"
@@ -418,7 +429,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
     (completions-highlight          . nano-highlight)
     (completions-group-separator    . nano-default)
     (completions-group-title        . nano-strong))
-  
+
   "Completion faces"
   :tag "(completion faces)"
   :type nano-theme-mapping-type
@@ -453,9 +464,9 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
     (font-lock-string-face                 . nano-faded-s)
     (font-lock-comment-delimiter-face      . nano-faded)
     (font-lock-comment-face                . nano-faded))
-                                        
-  "Font-lock faces"    
-  :tag "(font-lock faces)" 
+
+  "Font-lock faces"
+  :tag "(font-lock faces)"
   :type nano-theme-mapping-type
   :group 'nano-theme-emacs)
 
@@ -1517,7 +1528,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
 (defcustom nano-theme-buffer-box
   '((buffer-box-face-active   . nano-default)
     (buffer-box-face-inactive . nano-faded))
-  
+
   "Buffer box faces"
   :tag "(buffer-box faces)"
   :type nano-theme-mapping-type
@@ -1565,7 +1576,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
     nano-theme-marginalia-file
     nano-theme-marginalia-misc
     nano-theme-marginalia-metadata
-    
+
     ;; Magit
     nano-theme-magit-diff-faces
     nano-theme-magit-section-faces
@@ -1595,7 +1606,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
 
     ;; Deft
     nano-theme-deft
-    
+
     ;; Ledger
     nano-theme-ledger-reconciler
     nano-theme-ledger-postings
@@ -1635,7 +1646,7 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
     ;; Buffer box
     nano-theme-buffer-box
 )
-     
+
   "List of variables holding face → base-face mappings for the Nano theme.")
 
 ;;;###autoload
