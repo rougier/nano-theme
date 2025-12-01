@@ -1,4 +1,4 @@
-;;; nano-mono-theme.el --- NANO theme -*- lexical-binding: t -*-
+;;; nano-mono-theme.el --- NANO monochrome theme -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021,2025 Free Software Foundation, Inc.
 
@@ -27,7 +27,7 @@
 ;; Monochrome version of NANO theme
 
 ;;; Code:
-(require 'nano-theme)
+(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-mono "Nano monochrome theme")

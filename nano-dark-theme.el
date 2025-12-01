@@ -1,4 +1,4 @@
-;;; nano-dark-theme.el --- NANO theme -*- lexical-binding: t -*-
+;;; nano-dark-theme.el --- NANO dark theme -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021,2025 Free Software Foundation, Inc.
 
@@ -27,7 +27,7 @@
 ;; Dark version of NANO theme
 
 ;;; Code:
-(require 'nano-theme)
+(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-dark "Nano dark theme")

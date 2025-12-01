@@ -1,4 +1,4 @@
-;;; nano-gray-theme.el --- NANO theme -*- lexical-binding: t -*-
+;;; nano-gray-theme.el --- NANO gray theme -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021,2025 Free Software Foundation, Inc.
 
@@ -27,7 +27,7 @@
 ;; Gray version of NANO theme
 
 ;;; Code:
-(require 'nano-theme)
+(require 'nano-theme-support)
 
 ;;;###autoload
 (deftheme nano-gray "Nano gray theme")
