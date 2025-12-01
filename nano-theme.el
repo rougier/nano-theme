@@ -358,7 +358,6 @@ from all variables listed in `nano-theme-packages`."
         (dolist (entry faces-alist)
           (let ((face (car entry))
                 (base (cdr entry)))
-            (message "Building %s" face)
             (when (symbolp face)
               (custom-theme-set-faces
                theme
@@ -1653,16 +1652,6 @@ from all variables listed in `nano-theme-packages`."
 (when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
-
-;; (when nil
-;;   (add-to-list 'load-path "~/Documents/Emacs/themes/")
-;;   (add-to-list 'custom-theme-load-path "~/Documents/Emacs/themes/")
-;;   ;; (setq custom-theme-load-path '("~/Documents/Emacs/themes/"))
-;;   ;; (load-theme 'nano-light t)
-;;   ;; (load-theme 'nano-gray t)
-;;   ;; (load-theme 'nano-dark t)
-;;   ;; (load-theme 'nano-mono t)
-;;   )
 
 (provide 'nano-theme)
 ;;; nano-theme.el ends here
