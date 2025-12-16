@@ -279,7 +279,10 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
       (custom-theme-set-faces
        theme
        `(,(intern (concat (symbol-name name) "-i"))
-          ((t ,(append attrs `(:foreground ,fg) `(:background ,bg) '(:weight bold)))))))))
+         ((t ,(append attrs `(:foreground ,fg)
+                            `(:background ,bg)
+                            `(:extend t)
+                            '(:weight bold)))))))))
 
 (defun nano-theme-build-bases (theme)
   "Set base faces for the NANO light theme in THEME."
