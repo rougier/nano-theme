@@ -122,9 +122,10 @@
 
 ;; Version 1.0.0
 ;; - NANO Theme is now a regular theme
-;; - Added nano-gray (light gray background)
+;; - Added nano-gray (light gray background based on light)
 ;; - Added nano-mono (monochrome with two shades of gray)
 ;; - Customization for each known packages
+;; - Added variants (inverse, strong and highlight) for each base face
 
 ;; Version 0.3.5
 ;; - Added diff-hl faces
