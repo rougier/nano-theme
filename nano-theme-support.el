@@ -1309,7 +1309,7 @@ from all variables listed in `nano-theme-packages`."
 
 ;; ── Separators / misc
 (defcustom nano-theme-message-misc
-  '((message-separator           . nano-subtle)
+  '((message-separator           . nano-faded)
     (message-signature-separator . nano-faded)
     (message-mml                 . nano-default))
   "Miscellaneous message faces (separators, MML)."
