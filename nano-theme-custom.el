@@ -50,6 +50,11 @@ is not present, you can make a pull request to add it."
   :tag "Dired faces"
   :group 'nano-theme)
 
+(defgroup nano-theme-diredfl nil
+  "Dired font lock faces"
+  :tag "Dired font clock faces"
+  :group 'nano-theme)
+
 (defgroup nano-theme-dired nil
   "Dired faces"
   :tag "Dired faces"

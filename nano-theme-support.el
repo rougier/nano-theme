@@ -802,18 +802,61 @@ from all variables listed in `nano-theme-packages`."
     (dired-special              . nano-highlight)
     (dired-broken-symlink       . nano-critical)
     (dired-symlink              . nano-salient)
-    (dired-directory            . nano-salient-s)
+    (dired-directory            . nano-strong)
     (dired-set-id               . nano-strong)
     (dired-perm-write           . nano-salient)
     (dired-warning              . nano-popout-s)
-    (dired-flagged              . nano-popout)
-    (dired-marked               . nano-salient)
-    (dired-mark                 . nano-popout)
-    (dired-header               . nano-strong))
+    (dired-flagged              . nano-critical-s)
+    (dired-marked               . nano-salient-s)
+    (dired-mark                 . nano-strong-s)
+    (dired-header               . nano-salient-s))
   "Faces for Dired file manager."
   :tag "(dired)"
   :type nano-theme-mapping-type
   :group 'nano-theme-dired)
+
+(defcustom nano-theme-diredfl
+  '((diredfl-write-priv             . nano-default)
+    (diredfl-read-priv              . nano-default)
+    (diredfl-rare-priv              . nano-default)
+    (diredfl-other-priv             . nano-default)
+    (diredfl-no-priv                . nano-default)
+    (diredfl-link-priv              . nano-default)
+    (diredfl-exec-priv              . nano-default)
+    (diredfl-dir-priv               . nano-default)
+
+    (diredfl-flag-mark-line         . nano-salient-s)
+    (diredfl-flag-mark              . nano-salient-s)
+
+    (diredfl-tagged-autofile-name   . nano-default)
+    (diredfl-symlink                . nano-default)
+
+    (diredfl-number                 . nano-default)
+    (diredfl-date-time              . nano-default)
+    (diredfl-file-name              . nano-default)
+    (diredfl-file-suffix            . nano-default)
+    (diredfl-dir-name               . nano-strong)
+    (diredfl-compressed-file-name   . nano-default)
+    (diredfl-compressed-file-suffix . nano-default)
+
+    (diredfl-ignored-file-name      . nano-faded)
+    (diredfl-deletion-file-name     . nano-critical-s)
+    (diredfl-autofile-name          . nano-default)
+    (diredfl-executable-tag         . nano-default)
+    (diredfl-dir-heading            . nano-strong)
+    (diredfl-deletion               . nano-critical-s))
+
+  "Faces for Dired font-lock."
+  :tag "(diredfl)"
+  :type nano-theme-mapping-type
+  :group 'nano-theme-dired)
+
+(defcustom nano-theme-stripes
+  '((stripes . nano-highlight))
+  "Faces for stripes."
+  :tag "(stripes)"
+  :type nano-theme-mapping-type
+  :group 'nano-theme-sripes)
 
 (defcustom nano-theme-vertico
   '((vertico-current             . nano-subtle)
@@ -1491,6 +1534,9 @@ from all variables listed in `nano-theme-packages`."
 
     ;; Dired
     nano-theme-dired
+
+    ;; Diredfl
+    nano-theme-diredfl
 
     ;; Vertico
     nano-theme-vertico
