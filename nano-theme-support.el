@@ -1362,15 +1362,16 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-popup)
 
 (defcustom nano-theme-diff
-  '((diff-header                    . nano-faded)
-    (diff-file-header               . nano-strong)
+  '((diff-header                    . nano-highlight)
+    (diff-file-header               . nano-highlight-s)
     (diff-context                   . nano-default)
-    (diff-removed                   . nano-faded)
-    (diff-changed                   . nano-popout)
-    (diff-added                     . nano-salient)
-    (diff-refine-added              . nano-salient-s)
-    (diff-refine-changed            . nano-popout)
-    (diff-refine-removed            . nano-critical-i))
+;;    (diff-removed                   . nano-faded)
+;;    (diff-changed                   . nano-popout)
+;;    (diff-added                     . nano-salient)
+;;    (diff-refine-added              . nano-salient-s)
+;;    (diff-refine-changed            . nano-popout)
+;;    (diff-refine-removed            . nano-critical-i)
+    )
   "Diff"
   :tag "(diff)"
   :type nano-theme-mapping-type
@@ -1637,8 +1638,8 @@ from all variables listed in `nano-theme-packages`."
     ;; Popup
     nano-theme-popup
 
-    ;; Diff
-    nano-theme-diff
+    ;; Diff (default is already good)
+    ;; nano-theme-diff
 
     ;; Icomplete
     nano-theme-icomplete
