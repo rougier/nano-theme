@@ -1394,10 +1394,10 @@ from all variables listed in `nano-theme-packages`."
     (markdown-header-face-5            . nano-strong)
     (markdown-header-face-6            . nano-strong)
     (markdown-header-face              . nano-strong)
-    (markdown-header-rule-face         . nano-subtle)
-    (markdown-header-delimiter-face    . nano-subtle)
+    (markdown-header-rule-face         . nano-strong)
+    (markdown-header-delimiter-face    . nano-faded-s)
     (markdown-hr-face                  . nano-subtle)
-    (markdown-highlighting-face        . nano-popout)
+    (markdown-highlighting-face        . nano-highlight)
     (markdown-list-face                . nano-default))
   "Faces for headers and structural elements."
   :tag "(markdown structure)"
@@ -1418,12 +1418,12 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-markdown)
 
 (defcustom nano-theme-markdown-code
-  '((markdown-code-face                . nano-popout)
+  '((markdown-code-face                . nano-faded)
     (markdown-inline-code-face         . nano-popout)
-    (markdown-pre-face                 . nano-subtle)
+    (markdown-pre-face                 . nano-faded)
     (markdown-language-info-face       . nano-popout)
-    (markdown-language-keyword-face    . nano-popout)
-    (markdown-math-face                . nano-popout))
+    (markdown-language-keyword-face    . nano-strong)
+    (markdown-math-face                . nano-strong))
   "Faces for code, syntax, and block elements."
   :tag "(markdown code)"
   :type nano-theme-mapping-type
