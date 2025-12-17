@@ -150,6 +150,12 @@ is not present, you can make a pull request to add it."
   :tag "Buffer-box faces"
   :group 'nano-theme)
 
+(defgroup nano-theme-nano-modeline nil
+  "NANO modeline faces"
+  :tag "NANO modeline faces"
+  :group 'nano-theme)
+
+(defgroup nano-theme-stripes nil
 (provide 'nano-theme-custom)
 
 ;;; nano-theme-custom.el ends here
