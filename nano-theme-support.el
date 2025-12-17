@@ -676,20 +676,18 @@ from all variables listed in `nano-theme-packages`."
     (org-document-info           . nano-default)
     (org-document-info-keyword   . nano-faded)
     (org-meta-line               . nano-faded)
-    (org-special-keyword         . nano-faded)
-    (org-block-begin-line        . nano-faded)
-    (org-block-end-line          . nano-faded))
+    (org-special-keyword         . nano-faded))
   "Org headings and document structure faces."
   :tag "(org headings)"
   :type nano-theme-mapping-type
   :group 'nano-theme-org)
 
 (defcustom nano-theme-org-todo
-  '((org-todo                        . nano-critical)
-    (org-done                        . nano-faded)
-    (org-headline-done               . nano-faded)
-    (org-checkbox-statistics-todo    . nano-critical)
-    (org-checkbox-statistics-done    . nano-faded))
+  '((org-todo                        . nano-salient-s)
+    (org-done                        . nano-faded-s)
+    (org-headline-done               . nano-faded-s)
+    (org-checkbox-statistics-todo    . nano-salient-s)
+    (org-checkbox-statistics-done    . nano-faded-s))
   "Faces for TODO and DONE states in Org."
   :tag "(org todo)"
   :type nano-theme-mapping-type
@@ -730,7 +728,9 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-org)
 
 (defcustom nano-theme-org-blocks
-  '((org-block               . nano-default)
+  '((org-block-begin-line    . nano-subtle-s)
+    (org-block-end-line      . nano-subtle-s)
+    (org-block               . nano-highlight)
     (org-code                . nano-default)
     (org-verbatim            . nano-default)
     (org-formula             . nano-salient)
