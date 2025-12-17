@@ -1631,6 +1631,9 @@ from all variables listed in `nano-theme-packages`."
     ;; EPA
     nano-theme-epa
 
+    ;; Stripes
+    nano-theme-stripes
+
     ;; Popup
     nano-theme-popup
 
