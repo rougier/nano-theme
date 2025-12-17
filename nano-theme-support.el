@@ -206,74 +206,108 @@ Structure: ((TTY-REGULAR . TTY-BOLD) . (GUI-REGULAR . GUI-BOLD))"
 
              (choice :tag ,(propertize "default" 'face 'nano-default)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-default)    nano-default)
-                     (const :tag ,(propertize " strong "  'face 'nano-default-s)  nano-default-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-default-i)  nano-default-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-default)    nano-default)
+                     (const :tag ,(propertize " strong "    'face 'nano-default-s)  nano-default-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-default-h)  nano-default-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-default-i)  nano-default-i))
 
              (choice :tag ,(propertize " strong " 'face 'nano-strong)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-strong)    nano-strong)
-                     (const :tag ,(propertize " strong "  'face 'nano-strong-s)  nano-strong-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-strong-i)  nano-strong-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-strong)    nano-strong)
+                     (const :tag ,(propertize " strong "    'face 'nano-strong-s)  nano-strong-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-strong-h)  nano-strong-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-strong-i)  nano-strong-i))
 
              (choice :tag ,(propertize "faded" 'face 'nano-faded)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-faded)    nano-faded)
-                     (const :tag ,(propertize " strong "  'face 'nano-faded-s)  nano-faded-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-faded-i)  nano-faded-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-faded)    nano-faded)
+                     (const :tag ,(propertize " strong "    'face 'nano-faded-s)  nano-faded-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-faded-h)  nano-faded-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-faded-i)  nano-faded-i))
 
              (choice :tag ,(propertize "popout" 'face 'nano-popout)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-popout)    nano-popout)
-                     (const :tag ,(propertize " strong "  'face 'nano-popout-s)  nano-popout-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-popout-i)  nano-popout-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-popout)    nano-popout)
+                     (const :tag ,(propertize " strong "    'face 'nano-popout-s)  nano-popout-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-popout-h)  nano-popout-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-popout-i)  nano-popout-i))
 
              (choice :tag ,(propertize "salient" 'face 'nano-salient)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-salient)    nano-salient)
-                     (const :tag ,(propertize " strong "  'face 'nano-salient-s)  nano-salient-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-salient-i)  nano-salient-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-salient)    nano-salient)
+                     (const :tag ,(propertize " strong "    'face 'nano-salient-s)  nano-salient-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-salient-h)  nano-salient-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-salient-i)  nano-salient-i))
 
              (choice :tag ,(propertize "subtle" 'face 'nano-subtle)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-subtle)    nano-subtle)
-                     (const :tag ,(propertize " strong "  'face 'nano-subtle-s)  nano-subtle-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-subtle-i)  nano-subtle-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-subtle)    nano-subtle)
+                     (const :tag ,(propertize " strong "    'face 'nano-subtle-s)  nano-subtle-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-subtle-h)  nano-subtle-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-subtle-i)  nano-subtle-i))
 
              (choice :tag ,(propertize "highlight" 'face 'nano-highlight)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-highlight)    nano-highlight)
-                     (const :tag ,(propertize " strong "  'face 'nano-highlight-s)  nano-highlight-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-highlight-i)  nano-highlight-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-highlight)    nano-highlight)
+                     (const :tag ,(propertize " strong "    'face 'nano-highlight-s)  nano-highlight-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-highlight-h)  nano-highlight-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-highlight-i)  nano-highlight-i))
              (choice :tag ,(propertize "critical" 'face 'nano-critical)
                      :format "%t: %[%{VARIANT%}%]  %v"
-                     (const :tag ,(propertize " regular " 'face 'nano-critical)    nano-critical)
-                     (const :tag ,(propertize " strong "  'face 'nano-critical-s)  nano-critical-s)
-                     (const :tag ,(propertize " inverse " 'face 'nano-critical-i)  nano-critical-i))
+                     (const :tag ,(propertize " regular "   'face 'nano-critical)    nano-critical)
+                     (const :tag ,(propertize " strong "    'face 'nano-critical-s)  nano-critical-s)
+                     (const :tag ,(propertize " highlight " 'face 'nano-critical-h)  nano-critical-h)
+                     (const :tag ,(propertize " inverse "   'face 'nano-critical-i)  nano-critical-i))
              )))
   "Custom type for mapping faces to nano faces, grouped by Base then Variant with live previews.")
 
+(defun nano-theme-color-mix (c1 c2 &optional alpha)
+  "Mix C1 and C2 colors by ALPHA."
+  (let* ((alpha (or alpha 0.05))
+         (rgb1 (color-name-to-rgb c1))
+         (rgb2 (color-name-to-rgb c2)))
+    (color-rgb-to-hex
+     (+ (* (- 1 alpha) (nth 0 rgb1)) (* alpha (nth 0 rgb2)))
+     (+ (* (- 1 alpha) (nth 1 rgb1)) (* alpha (nth 1 rgb2)))
+     (+ (* (- 1 alpha) (nth 2 rgb1)) (* alpha (nth 2 rgb2))) 2)))
+
 
 (defun nano-theme-defface (theme name &optional foreground background weight)
-  "Set THEME face NAME and related '-s' and '-i' faces."
+  "Set THEME face NAME and related '-s', '-h' and '-i' faces."
   (let ((attrs (apply #'append
                       (delq nil
                             (list
                              (when foreground `(:foreground ,foreground))
                              (when background `(:background ,background))
                              (when weight `(:weight ,weight)))))))
+
     ;; Base face
+    (custom-declare-face (intern (concat (symbol-name name) ""))    '((t)) "")
     (custom-theme-set-faces
      theme
      `(,name ((t ,attrs))))
 
     ;; -s variant
+    (custom-declare-face (intern (concat (symbol-name name) "-s"))  '((t)) "")
     (custom-theme-set-faces
      theme
      `(,(intern (concat (symbol-name name) "-s"))
         ((t ,(append attrs '(:weight bold))))))
 
+    ;; -h variant
+    (custom-declare-face (intern (concat (symbol-name name) "-h"))  '((t)) "")
+    (let* ((fg (or foreground (face-foreground 'default)))
+           (fg (nano-theme-color-mix (face-foreground 'default) fg 0.850))
+           (bg (nano-theme-color-mix (face-background 'default) fg 0.075)))      
+      (custom-theme-set-faces
+       theme
+       `(,(intern (concat (symbol-name name) "-h"))
+         ((t ,(append attrs `(:foreground ,fg)
+                            `(:background ,bg)
+                            `(:extend t)))))))
+
     ;; -i variant
+    (custom-declare-face (intern (concat (symbol-name name) "-i"))  '((t)) "")
     (let ((fg (or background (face-background 'default)))
           (bg (or foreground (face-foreground 'default))))
       (custom-theme-set-faces
