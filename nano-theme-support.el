@@ -875,17 +875,17 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-marginalia)
 
 (defcustom nano-theme-magit-diff-faces
-  '((magit-diff-added             . nano-strong)
-    (magit-diff-added-highlight   . nano-strong)
-    (magit-diff-removed           . nano-critical)
-    (magit-diff-removed-highlight . nano-critical)
-    (magit-diff-context           . nano-default)
-    (magit-diff-context-highlight . nano-default)
-    (magit-diff-file-heading           . nano-strong)
-    (magit-diff-file-heading-highlight . nano-strong)
-    (magit-diff-file-heading-selection . nano-highlight)
-    (magit-diff-hunk-heading            . nano-strong)
-    (magit-diff-hunk-heading-highlight  . nano-strong)
+  '((magit-diff-added                   . nano-faded)
+    (magit-diff-removed                 . nano-faded)
+    (magit-diff-context                 . nano-faded)
+    (magit-diff-added-highlight         . nano-salient-h)
+    (magit-diff-removed-highlight       . nano-critical-h)
+    (magit-diff-context-highlight       . nano-highlight)
+    (magit-diff-file-heading            . nano-strong)
+    (magit-diff-file-heading-highlight  . nano-salient-s)
+    (magit-diff-file-heading-selection  . nano-faded-i)
+    (magit-diff-hunk-heading            . nano-faded-i)
+    (magit-diff-hunk-heading-highlight  . nano-default-i)
     (magit-diff-hunk-heading-selection  . nano-highlight))
   "Magit diff hunks and file headings."
   :tag "(magit diffs)"
@@ -894,9 +894,9 @@ from all variables listed in `nano-theme-packages`."
 
 (defcustom nano-theme-magit-section-faces
   '((magit-section-heading           . nano-strong)
-    (magit-section-heading-selection . nano-highlight)
-    (magit-section-highlight         . nano-default)
-    (magit-section-secondary-heading . nano-default))
+    (magit-section-highlight         . nano-salient-s)
+    (magit-section-heading-selection . nano-salient-i)
+    (magit-section-secondary-heading . nano-salient-h))
   "Magit buffer sections."
   :tag "(magit sections)"
   :type nano-theme-mapping-type
