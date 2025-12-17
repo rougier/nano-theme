@@ -938,7 +938,7 @@ from all variables listed in `nano-theme-packages`."
 
 (defcustom nano-theme-magit-section-faces
   '((magit-section-heading           . nano-strong)
-    (magit-section-highlight         . nano-salient-s)
+    (magit-section-highlight         . nano-highlight-s)
     (magit-section-heading-selection . nano-salient-i)
     (magit-section-secondary-heading . nano-salient-h))
   "Magit buffer sections."
