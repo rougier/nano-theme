@@ -156,6 +156,10 @@ is not present, you can make a pull request to add it."
   :group 'nano-theme)
 
 (defgroup nano-theme-stripes nil
+  "Stripes faces"
+  :tag "Stripes faces"
+  :group 'nano-theme)
+
 (provide 'nano-theme-custom)
 
 ;;; nano-theme-custom.el ends here
