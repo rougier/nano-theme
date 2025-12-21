@@ -1729,6 +1729,34 @@ from all variables listed in `nano-theme-packages`."
   "List of variables holding face → base-face mappings for the Nano theme.")
 
 ;;;###autoload
+(defun nano-theme-load (&optional mode frame)
+  "Load theme for MODE (light, dark, gray or mono) on specified FRAME.
+
+FRAME being a frame means change the face on that frame.
+FRAME nil means change the face of the selected frame.
+FRAME t means change the default for all frames."
+
+  (setq frame-background-mode mode)
+  (let ((frame (or frame (selected-frame))))
+    (cond ((framep frame)
+           (face-spec-recalc 'default frame)
+           (dolist (face (face-list))
+             (face-spec-recalc face frame))
+           (when (display-graphic-p)
+             (set-frame-parameter frame 'background-color
+                                  (face-background 'default))))
+          (t
+           (dolist (frame (frame-list))
+             (face-spec-recalc 'default frame))
+           (dolist (face (face-list))
+             (dolist (frame (frame-list))
+               (face-spec-recalc face frame)))
+           (dolist (frame (frame-list))
+             (when (display-graphic-p)
+               (set-frame-parameter frame 'background-color
+                                    (face-background 'default))))))))
+
+;;;###autoload
 (when load-file-name
  (add-to-list 'custom-theme-load-path
               (file-name-as-directory (file-name-directory load-file-name))))
