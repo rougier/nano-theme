@@ -398,11 +398,16 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
                            ( "#000000" "#ECEFF1" ,regular)   ;; gray
                            ( "#ECEFF4" "#2E3440" ,regular)   ;; dark
                            ( "#000000" "#FFFFFF" ,regular))) ;; mono
+    ;; (nano-theme-set-nano-face theme 'nano-default base
+    ;;                      `(( "#000000" "#FFFFFF" ,regular)   ;; light
+    ;;                        ( "#000000" "#ECEFF1" ,regular)   ;; gray
+    ;;                        ( "#ECEFF4" "#2E3440" ,regular)   ;; dark
+    ;;                        ( "#000000" "#FFFFFF" ,regular))) ;; mono
     (nano-theme-set-nano-face theme 'nano-default base
-                         `(( "#000000" "#FFFFFF" ,regular)   ;; light
-                           ( "#000000" "#ECEFF1" ,regular)   ;; gray
-                           ( "#ECEFF4" "#2E3440" ,regular)   ;; dark
-                           ( "#000000" "#FFFFFF" ,regular))) ;; mono
+                         `(( "#000000" nil nil)   ;; light
+                           ( "#000000" nil nil)   ;; gray
+                           ( "#ECEFF4" nil nil)   ;; dark
+                           ( "#000000" nil nil))) ;; mono
     (nano-theme-set-nano-face theme 'nano-strong base
                               `(( nil nil ,bold)   ;; light
                                 ( nil nil ,bold)   ;; gray
