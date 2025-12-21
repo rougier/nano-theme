@@ -554,6 +554,37 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-emacs)
 
+(defcustom nano-theme-emacs-custom
+  '((custom-group-subtitle        . nano-salient)
+    (custom-group-tag             . nano-salient)
+    (custom-group-tag-1           . nano-salient)
+    (custom-state                 . nano-salient)
+    (custom-face-tag              . nano-default)
+    (custom-variable-tag          . nano-default)
+    (custom-variable-button       . nano-default)
+    (custom-variable-obsolete     . nano-faded)
+    (custom-comment               . nano-faded)
+    (custom-comment-tag           . nano-faded)
+    (custom-documentation         . nano-faded)
+    (custom-link                  . nano-salient)
+    (custom-button                . nano-subtle)
+    (custom-button-unraised       . nano-strong)
+    (custom-button-mouse          . nano-faded-i)
+    (custom-button-pressed        . nano-salient-i)
+    (custom-button-pressed-unraised . nano-popout)
+    (custom-saved                 . nano-default)
+    (custom-themed                . nano-default)
+    (custom-set                   . nano-salient-s)
+    (custom-changed               . nano-popout-s)
+    (custom-modified              . nano-popout-s)
+    (custom-rogue                 . nano-critical-s)
+    (custom-invalid               . nano-critical-s)
+    (custom-visibility            . nano-strong))
+  "Custom buffers"
+  :tag "(custom faces)"
+  :type nano-theme-mapping-type
+  :group 'nano-theme-emacs)
+
 (defcustom nano-theme-emacs-search
   '((isearch                    . nano-salient)
     (isearch-group-1            . nano-salient)
@@ -1620,6 +1651,7 @@ from all variables listed in `nano-theme-packages`."
     nano-theme-emacs-line-numbers
     nano-theme-emacs-selection
     nano-theme-emacs-face-attributes
+    nano-theme-emacs-custom
     nano-theme-emacs-misc
 
     ;; Org mode
