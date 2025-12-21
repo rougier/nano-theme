@@ -1,4 +1,4 @@
-;;; nano-mono-theme.el --- NANO monochrome theme -*- lexical-binding: t -*-
+;;; nano-theme.el --- NANO theme -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021,2025 Free Software Foundation, Inc.
 
@@ -6,7 +6,7 @@
 ;; URL: https://github.com/rougier/nano-theme
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
-;; Keywords: theme, mono, light, mono, mono
+;; Keywords: theme, dark, light, gray, mono
 
 ;; This file is not part of GNU Emacs.
 
@@ -24,17 +24,18 @@
 ;; see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Monochrome version of NANO theme
+;; Light version of NANO theme
+
 
 ;;; Code:
 
 ;;;###autoload
-(deftheme nano-mono "Nano monochrome theme")
+(deftheme nano "Nano theme")
 (require 'nano-theme-custom)
 (require 'nano-theme-support)
-(nano-theme-build-bases 'nano-mono)
-(nano-theme-build-faces 'nano-mono)
-(nano-theme-build-ansi-term 'nano-mono)
-(provide-theme 'nano-mono)
+(nano-theme-build-bases 'nano)
+(nano-theme-build-faces 'nano)
+;; (nano-theme-build-ansi-term 'nano)
+(provide-theme 'nano)
 
-;;; nano-mono-theme.el ends here
+;;; nano-theme.el ends here
