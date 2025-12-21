@@ -1562,19 +1562,20 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-buffer-box)
 
 (defcustom nano-theme-nano-modeline-active
-  '((nano-modeline-face-active                     . nano-subtle)
-    (nano-modeline-face-active-name                . nano-strong)
-    (nano-modeline-face-active-primary             . nano-default)
-    (nano-modeline-face-active-secondary           . nano-faded)
+  '((nano-modeline-active                     . nano-subtle)
+    (nano-modeline-active-primary             . nano-strong)
+    (nano-modeline-active-secondary           . nano-default)
+    (nano-modeline-active-extra               . nano-faded)
+    (nano-modeline-active-indicator           . nano-strong)
     
-    (nano-modeline-face-active-buffer-read-write   . nano-faded-i)
-    (nano-modeline-face-active-buffer-read-only    . nano-default-i)
-    (nano-modeline-face-active-buffer-modified     . nano-popout-i)
-    (nano-modeline-face-active-buffer-special      . nano-salient-i)
+    (nano-modeline-active-status-read-write   . nano-faded-i)
+    (nano-modeline-active-status-read-only    . nano-default-i)
+    (nano-modeline-active-status-modified     . nano-popout-i)
+    (nano-modeline-active-status-other        . nano-salient-i)
     
-    (nano-modeline-face-active-button--active      . nano-faded-i)
-    (nano-modeline-face-active-button-highlight    . nano-popout-i)
-    (nano-modeline-face-active-button-inactive     . nano-faded))
+    (nano-modeline-active-button--active      . nano-faded-i)
+    (nano-modeline-active-button-highlight    . nano-popout-i)
+    (nano-modeline-active-button-inactive     . nano-faded))
 
   "NANO modeline active faces"
   :tag "(nano-modeline faces)"
@@ -1582,19 +1583,20 @@ from all variables listed in `nano-theme-packages`."
   :group 'nano-theme-nano-modeline)
 
 (defcustom nano-theme-nano-modeline-inactive
-  '((nano-modeline-face-inactive                     . nano-subtle)
-    (nano-modeline-face-inactive-name                . nano-faded-s)
-    (nano-modeline-face-inactive-primary             . nano-faded)
-    (nano-modeline-face-inactive-secondary           . nano-faded)
+  '((nano-modeline-inactive                     . nano-subtle)
+    (nano-modeline-inactive-primary             . nano-faded-s)
+    (nano-modeline-inactive-secondary           . nano-faded)
+    (nano-modeline-inactive-extra               . nano-faded)
+    (nano-modeline-inactive-indicator           . nano-faded)
     
-    (nano-modeline-face-inactive-buffer-read-write   . nano-faded-s)
-    (nano-modeline-face-inactive-buffer-read-only    . nano-faded-s)
-    (nano-modeline-face-inactive-buffer-modified     . nano-faded-s)
-    (nano-modeline-face-inactive-buffer-special      . nano-faded-s)
+    (nano-modeline-inactive-status-read-write   . nano-faded-s)
+    (nano-modeline-inactive-status-read-only    . nano-faded-s)
+    (nano-modeline-inactive-status-modified     . nano-faded-s)
+    (nano-modeline-inactive-status-other        . nano-faded-s)
     
-    (nano-modeline-face-inactive-button-active       . nano-faded-s)
-    (nano-modeline-face-inactive-button-highlight    . nano-faded)
-    (nano-modeline-face-inactive-button-inactive     . nano-faded))
+    (nano-modeline-inactive-button-active       . nano-faded-s)
+    (nano-modeline-inactive-button-highlight    . nano-faded)
+    (nano-modeline-inactive-button-inactive     . nano-faded))
 
   "NANO modeline inactive faces"
   :tag "(nano-modeline faces)"
@@ -1710,6 +1712,10 @@ from all variables listed in `nano-theme-packages`."
     nano-theme-markdown-code
     nano-theme-markdown-links
 
+    ;; Modeline
+    nano-theme-nano-modeline-active
+    nano-theme-nano-modeline-inactive
+    
     ;; SHR
     nano-theme-shr
 
