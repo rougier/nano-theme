@@ -412,17 +412,17 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
                               `(( nil "#F9F9F9" nil)     ;; light
                                 ( nil "#F9F9F9" nil)     ;; gray
                                 ( nil "#3B4252" nil)     ;; dark
-                                ( nil "#DDDDDD" nil)))   ;; mono
+                                ( nil "#EEEEEE" nil)))   ;; mono
     (nano-theme-set-nano-face theme 'nano-subtle base
                               `(( nil "#ECEFF1" nil)     ;; light
                                 ( nil "#FFFFFF" nil)     ;; gray
                                 ( nil "#434C5E" nil)     ;; dark
-                                ( nil "#999999" nil)))   ;; mono
+                                ( nil "#D0D0D0" nil)))   ;; mono
     (nano-theme-set-nano-face theme 'nano-faded base
                               `(( "#607D8B" nil nil)     ;; light
                                 ( "#607D8B" nil nil)     ;; gray
                                 ( "#677691" nil nil)     ;; dark
-                                ( "#999999" nil nil)))   ;; mono
+                                ( "#777777" nil nil)))   ;; mono
     (nano-theme-set-nano-face theme 'nano-salient base
                               `(( "#673AB7" nil nil)     ;; light
                                 ( "#673AB7" nil nil)     ;; gray
