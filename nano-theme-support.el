@@ -632,7 +632,14 @@ from all variables listed in `nano-theme-packages`."
     (help-argument-name        . nano-default)
     (button                    . nano-salient)
     (abbrev-table-name         . nano-default)
-    (menu                      . nano-subtle))
+    (menu                      . nano-subtle)
+    (widget-button-pressed     . nano-salient-s)
+    (widget-unselected         . nano-faded)
+    (widget-inactive           . nano-faded)
+    (widget-single-line-field  . nano-subtle)
+    (widget-field              . nano-subtle)
+    (widget-button             . nano-strong)
+    (widget-documentation      . nano-default))
   "Faces for TTY menus, buttons and widget UI elements."
   :tag "(widgets)"
   :type nano-theme-mapping-type
