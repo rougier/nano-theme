@@ -161,6 +161,72 @@
 
 ;;; Code:
 
+(defconst nano-theme-color-type
+  '(choice
+    (const :tag "Inherit / default" nil)
+    (color :tag "Color")))
+
+(defcustom nano-theme-palette
+  '((light
+     :foreground "#000000"
+     :background "#FFFFFF"
+     :highlight  "#F9F9F9"
+     :subtle     "#ECEFF1"
+     :faded      "#607D8B"
+     :salient    "#673AB7"
+     :popout     "#FFAB91"
+     :critical   "#FF6F00"
+     :strong     nil)
+    (gray
+     :foreground "#000000"
+     :background "#ECEFF1"
+     :highlight  "#F9F9F9"
+     :subtle     "#FFFFFF"
+     :faded      "#607D8B"
+     :salient    "#673AB7"
+     :popout     "#FFAB91"
+     :critical   "#FF6F00"
+     :strong     nil)
+    (dark
+     :foreground "#ECEFF4"
+     :background "#2E3440"
+     :highlight  "#3B4252"
+     :subtle     "#434C5E"
+     :faded      "#677691"
+     :salient    "#81A1C1"
+     :popout     "#D08770"
+     :critical   "#EBCB8B"
+     :strong     nil)
+    (mono
+     :foreground "#000000"
+     :background "#FFFFFF"
+     :highlight  "#EEEEEE"
+     :subtle     "#D0D0D0"
+     :faded      "#777777"
+     :salient    "#000000"
+     :popout     "#000000"
+     :critical   "#000000"
+     :strong     nil))
+  "Color palette for all nano theme modes"
+  :type
+  `(alist
+    :key-type symbol
+    :value-type
+    (plist
+     :options
+     ((:foreground ,nano-theme-color-type)
+      (:background ,nano-theme-color-type)
+      (:highlight  ,nano-theme-color-type)
+      (:subtle     ,nano-theme-color-type)
+      (:faded      ,nano-theme-color-type)
+      (:salient    ,nano-theme-color-type)
+      (:popout     ,nano-theme-color-type)
+      (:critical   ,nano-theme-color-type)
+      (:strong     ,nano-theme-color-type))))
+  :group 'nano-theme-colors)
+
+
+
 (defcustom nano-theme-weights
   '((regular . bold) . (light . regular))
   "Font weights for regular and bold faces, depending on Emacs display mode (TTY or GUI).
@@ -383,66 +449,117 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
         (((background dark))  (:foreground ,dark-fg-h  :background ,dark-bg-h  :extend t))
         (((background mono))  (:foreground ,mono-fg-h  :background ,mono-bg-h  :extend t)))))))
 
+(defun nano-theme-palette (variant)
+  "Return the palette plist for VARIANT."
+  (cdr (assq variant nano-theme-palette)))
+
+(defun nano-theme-color (variant property)
+  "Return PROPERTY color for VARIANT.
+If the value is nil, return FALLBACK."
+  (plist-get (nano-theme-palette variant) property))
+
+(defun nano-theme-foreground (variant)
+  "Return foreground color for VARIANT."
+  (nano-theme-color variant :foreground))
+
+(defun nano-theme-background (variant)
+  "Return background color for VARIANT."
+  (nano-theme-color variant :background))
+
 (defun nano-theme-build-bases (theme)
+  "Build all nano base faces."
   (let* ((weights (if (display-graphic-p)
                       (cdr nano-theme-weights)
                     (car nano-theme-weights)))
          (regular (car weights))
          (bold (cdr weights))
-         (base '(( "#000000" "#FFFFFF")    ;; light fg / bg
-                 ( "#000000" "#ECEFF1")    ;; gray  fg / bg
-                 ( "#ECEFF4" "#2E3440")    ;; dark  fg / bg
-                 ( "#000000" "#FFFFFF")))) ;; mono  fg / bg   
-    (nano-theme-set-nano-face theme 'default base
-                         `(( "#000000" "#FFFFFF" ,regular)   ;; light
-                           ( "#000000" "#ECEFF1" ,regular)   ;; gray
-                           ( "#ECEFF4" "#2E3440" ,regular)   ;; dark
-                           ( "#000000" "#FFFFFF" ,regular))) ;; mono
-    ;; (nano-theme-set-nano-face theme 'nano-default base
-    ;;                      `(( "#000000" "#FFFFFF" ,regular)   ;; light
-    ;;                        ( "#000000" "#ECEFF1" ,regular)   ;; gray
-    ;;                        ( "#ECEFF4" "#2E3440" ,regular)   ;; dark
-    ;;                        ( "#000000" "#FFFFFF" ,regular))) ;; mono
-    (nano-theme-set-nano-face theme 'nano-default base
-                         `(( "#000000" nil nil)   ;; light
-                           ( "#000000" nil nil)   ;; gray
-                           ( "#ECEFF4" nil nil)   ;; dark
-                           ( "#000000" nil nil))) ;; mono
-    (nano-theme-set-nano-face theme 'nano-strong base
-                              `(( nil nil ,bold)   ;; light
-                                ( nil nil ,bold)   ;; gray
-                                ( nil nil ,bold)   ;; dark
-                                ( nil nil ,bold))) ;; mono
-    (nano-theme-set-nano-face theme 'nano-highlight base
-                              `(( nil "#F9F9F9" nil)     ;; light
-                                ( nil "#F9F9F9" nil)     ;; gray
-                                ( nil "#3B4252" nil)     ;; dark
-                                ( nil "#EEEEEE" nil)))   ;; mono
-    (nano-theme-set-nano-face theme 'nano-subtle base
-                              `(( nil "#ECEFF1" nil)     ;; light
-                                ( nil "#FFFFFF" nil)     ;; gray
-                                ( nil "#434C5E" nil)     ;; dark
-                                ( nil "#D0D0D0" nil)))   ;; mono
-    (nano-theme-set-nano-face theme 'nano-faded base
-                              `(( "#607D8B" nil nil)     ;; light
-                                ( "#607D8B" nil nil)     ;; gray
-                                ( "#677691" nil nil)     ;; dark
-                                ( "#777777" nil nil)))   ;; mono
-    (nano-theme-set-nano-face theme 'nano-salient base
-                              `(( "#673AB7" nil nil)     ;; light
-                                ( "#673AB7" nil nil)     ;; gray
-                                ( "#81A1C1" nil nil)     ;; dark
-                                ( "#000000" nil ,bold))) ;; mono
-    (nano-theme-set-nano-face theme 'nano-popout base
-                              `(( "#FFAB91" nil nil)     ;; light
-                                ( "#FFAB91" nil nil)     ;; gray
-                                ( "#D08770" nil nil)     ;; dark
-                                ( "#000000" nil ,bold))) ;; mono
-    (nano-theme-set-nano-face theme 'nano-critical base
-                              `(( "#FF6F00" nil nil)     ;; light
-                                ( "#FF6F00" nil nil)     ;; gray
-                                ( "#EBCB8B" nil nil)     ;; dark
-                                ( "#000000" nil ,bold))))) ;; mono
+         (variants '(light gray dark mono))
+
+         ;; Base foreground / background pairs
+         (base
+          (mapcar (lambda (v)
+                    (list (nano-theme-foreground v)
+                          (nano-theme-background v)))
+                  variants)))
+
+    ;; Default
+    (nano-theme-set-nano-face
+     theme 'default base
+     (mapcar (lambda (v)
+               (list (nano-theme-foreground v)
+                     (nano-theme-background v)
+                     regular))
+             variants))
+
+    ;; Nano default (foreground only)
+    (nano-theme-set-nano-face
+     theme 'nano-default base
+     (mapcar (lambda (v)
+               (list (nano-theme-foreground v)
+                     nil nil))
+             variants))
+
+    ;; Strong (weight only)
+    (nano-theme-set-nano-face
+     theme 'nano-strong base
+     (mapcar (lambda (v)
+               (list nil
+                     (nano-theme-color v :strong)
+                     bold))
+             variants))
+
+    ;; Highlight (background only)
+    (nano-theme-set-nano-face
+     theme 'nano-highlight base
+     (mapcar (lambda (v)
+               (list nil
+                     (nano-theme-color v :highlight)
+                     nil))
+             variants))
+
+    ;; Subtle (background only)
+    (nano-theme-set-nano-face
+     theme 'nano-subtle base
+     (mapcar (lambda (v)
+               (list nil
+                     (nano-theme-color v :subtle)
+                     nil))
+             variants))
+
+    ;; Faded (foreground only)
+    (nano-theme-set-nano-face
+     theme 'nano-faded base
+     (mapcar (lambda (v)
+               (list (nano-theme-color v :faded)
+                     nil nil))
+             variants))
+
+    ;; Salient
+    (nano-theme-set-nano-face
+     theme 'nano-salient base
+     (mapcar (lambda (v)
+               (list (nano-theme-color v :salient)
+                     nil
+                     (when (eq v 'mono) bold)))
+             variants))
+
+    ;; Popout
+    (nano-theme-set-nano-face
+     theme 'nano-popout base
+     (mapcar (lambda (v)
+               (list (nano-theme-color v :popout)
+                     nil
+                     (when (eq v 'mono) bold)))
+             variants))
+
+    ;; Critical
+    (nano-theme-set-nano-face
+     theme 'nano-critical base
+     (mapcar (lambda (v)
+               (list (nano-theme-color v :critical)
+                     nil
+                     (when (eq v 'mono) bold)))
+             variants))))
 
 (defun nano-theme-build-faces (theme)
   "Automatically generate inherited faces for THEME
