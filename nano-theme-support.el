@@ -84,31 +84,31 @@
 ;; Any known package can be customized through the customization interface.
 
 ;; Currently know packages are:
-;; - core Emacs
-;; - org
-;; - org agenda
-;; - dired
-;; - diredfl
-;; - vertico
-;; - marginalias
-;; - magit
-;; - corfu
-;; - mu4e
-;; - Gnus
-;; - elfeed
-;; - deft
-;; - ledger
-;; - message
 ;; - EPA
-;; - popup
+;; - gnus
+;; - SHR
+;; - buffer-box
+;; - core Emacs
+;; - corfu
+;; - deft
 ;; - diff
+;; - Dired
+;; - diredfl
+;; - elfeed
+;; - elpher
+;; - icomplete
+;; - ledger
+;; - magit
+;; - marginalias
+;; - markdown
+;; - message
+;; - mu4e
 ;; - nano-modeline
 ;; - nano-mu4e
-;; - icomplete
-;; - markdown
-;; - SHR
-;; - elpher
-;; - buffer-box
+;; - org
+;; - org agenda
+;; - popup
+;; - vertico
 
 ;; If you want a package to be added, please make a pull request at:
 ;; https://github.com/rougier/nano-theme
@@ -126,6 +126,8 @@
 ;; - Added gray and mono themes
 ;; - Added variants (inverse, strong and highlight) for each base face
 ;; - Customization for each known packages
+;; - Customizable base palette
+;; - Per frame theming
 
 ;; Version 0.3.5
 ;; - Added diff-hl faces
