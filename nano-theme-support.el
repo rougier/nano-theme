@@ -160,6 +160,8 @@
 ;; - Submission to ELPA
 
 ;;; Code:
+(require 'color)
+(require 'nano-theme-custom)
 
 (defconst nano-theme-color-type
   '(choice
@@ -223,9 +225,7 @@
       (:popout     ,nano-theme-color-type)
       (:critical   ,nano-theme-color-type)
       (:strong     ,nano-theme-color-type))))
-  :group 'nano-theme-colors)
-
-
+  :group 'nano-theme)
 
 (defcustom nano-theme-weights
   '((regular . bold) . (light . regular))
@@ -409,7 +409,11 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
                                     (when mono-wt `(:weight     ,mono-wt)))))))
 
     ;; Base
-    (custom-declare-face (intern (concat (symbol-name name) "")) '((t)) "")    
+    (custom-declare-face
+     (intern (concat (symbol-name name) ""))
+     '((t))
+     "Base")
+    
     (custom-theme-set-faces
      theme
      `(,name
@@ -419,8 +423,12 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
         (((background mono))  ,mono-attrs))))
 
     ;; Strong variant
-    (custom-declare-face (intern (concat (symbol-name name) "-s"))  '((t)) "")
-     (custom-theme-set-faces
+    (custom-declare-face
+     (intern (concat (symbol-name name) "-s"))
+     '((t))
+     "Strong")
+    
+    (custom-theme-set-faces
      theme
      `(,(intern (concat (symbol-name name) "-s"))
        ((((background light)) ,(append light-attrs `(:weight ,bold)))
@@ -429,7 +437,11 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
         (((background mono))  ,(append mono-attrs  `(:weight ,bold))))))
 
      ;; Inverse variant
-     (custom-declare-face (intern (concat (symbol-name name) "-i"))  '((t)) "")
+    (custom-declare-face
+     (intern (concat (symbol-name name) "-i"))
+     '((t))
+     "Inverse")
+
      (custom-theme-set-faces
      theme
      `(,(intern (concat (symbol-name name) "-i"))
@@ -440,7 +452,11 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
        t))
 
      ;; Highlight variant
-     (custom-declare-face (intern (concat (symbol-name name) "-h"))  '((t)) "")     
+     (custom-declare-face
+      (intern (concat (symbol-name name) "-h"))
+      '((t))
+      "Highlight")
+
      (custom-theme-set-faces
      theme
      `(,(intern (concat (symbol-name name) "-h"))
