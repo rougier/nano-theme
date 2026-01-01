@@ -1155,7 +1155,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-marginalia)
 
-(defcustom nano-theme-magit-diff-faces
+(defcustom nano-theme-magit-diff
   '((magit-diff-added                   . nano-faded)
     (magit-diff-removed                 . nano-faded)
     (magit-diff-context                 . nano-faded)
@@ -1173,7 +1173,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defcustom nano-theme-magit-section-faces
+(defcustom nano-theme-magit-section
   '((magit-section-heading           . nano-strong)
     (magit-section-highlight         . nano-highlight-s)
     (magit-section-heading-selection . nano-salient-i)
@@ -1183,7 +1183,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defcustom nano-theme-magit-refs-faces
+(defcustom nano-theme-magit-refs
   '((magit-branch-local   . nano-salient)
     (magit-branch-remote  . nano-salient)
     (magit-branch-current . nano-strong)
@@ -1193,7 +1193,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defcustom nano-theme-magit-blame-faces
+(defcustom nano-theme-magit-blame
   '((magit-blame-highlight . nano-faded)
     (magit-blame-margin    . nano-faded)
     (magit-blame-dimmed    . nano-faded)
@@ -1207,7 +1207,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defcustom nano-theme-magit-sequence-faces
+(defcustom nano-theme-magit-sequence
   '((magit-sequence-pick  . nano-salient)
     (magit-sequence-stop  . nano-strong)
     (magit-sequence-part  . nano-default)
@@ -1220,7 +1220,7 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-magit)
 
-(defcustom nano-theme-corfu-faces
+(defcustom nano-theme-corfu
   '((corfu-default     . nano-subtle)
     (corfu-current     . nano-faded-i)
     (corfu-border      . nano-faded-i)
@@ -1838,15 +1838,18 @@ from all variables listed in `nano-theme-packages`."
     nano-theme-marginalia-misc
     nano-theme-marginalia-metadata
 
+    ;; Orderless
+    nano-theme-orderless
+
     ;; Magit
-    nano-theme-magit-diff-faces
-    nano-theme-magit-section-faces
-    nano-theme-magit-refs-faces
-    nano-theme-magit-blame-faces
-    nano-theme-magit-sequence-faces
+    nano-theme-magit-diff
+    nano-theme-magit-section
+    nano-theme-magit-refs
+    nano-theme-magit-blame
+    nano-theme-magit-sequence
 
     ;; Corfu
-    nano-theme-corfu-faces
+    nano-theme-corfu
 
     ;; Mu4e
     nano-theme-mu4e-headers
