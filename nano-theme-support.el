@@ -1251,7 +1251,7 @@ from all variables listed in `nano-theme-packages`."
     (mu4e-header-key-face         . nano-default)
     (mu4e-header-field-face       . nano-default)
     (mu4e-header-marks-face       . nano-salient)
-    (mu4e-header-highlight-face   . nano-highlight)
+    (mu4e-header-highlight-face   . nano-salient-h)
     (mu4e-special-header-value-face . nano-default)
     (mu4e-related-face            . nano-default)
     (mu4e-forwarded-face          . nano-faded)
