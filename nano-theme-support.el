@@ -1259,7 +1259,7 @@ from all variables listed in `nano-theme-packages`."
     (mu4e-flagged-face            . nano-salient)
     (mu4e-draft-face              . nano-faded)
     (mu4e-trashed-face            . nano-faded)
-    (mu4e-unread-face             . nano-strong))
+    (mu4e-unread-face             . nano-salient))
   "Mu4e message list and thread view."
   :tag "(mu4e headers)"
   :type nano-theme-mapping-type
@@ -1276,7 +1276,7 @@ from all variables listed in `nano-theme-packages`."
     (mu4e-system-face             . nano-faded)
     (mu4e-footer-face             . nano-faded)
     (mu4e-title-face              . nano-strong)
-    (mu4e-highlight-face          . nano-highlight))
+    (mu4e-highlight-face          . nano-salient-h))
   "Mu4e message reading view."
   :tag "(mu4e view)"
   :type nano-theme-mapping-type
