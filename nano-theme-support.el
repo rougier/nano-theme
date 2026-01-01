@@ -429,14 +429,14 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
      (intern (concat (symbol-name name) "-s"))
      '((t))
      "Strong")
-    
+
     (custom-theme-set-faces
      theme
      `(,(intern (concat (symbol-name name) "-s"))
-       ((((background light)) ,(append light-attrs `(:weight ,bold)))
-        (((background gray))  ,(append gray-attrs  `(:weight ,bold)))
-        (((background dark))  ,(append dark-attrs  `(:weight ,bold)))
-        (((background mono))  ,(append mono-attrs  `(:weight ,bold))))))
+       ((((background light)) ,(append light-attrs `(:weight ,bold :extend t)))
+        (((background gray))  ,(append gray-attrs  `(:weight ,bold :extend t)))
+        (((background dark))  ,(append dark-attrs  `(:weight ,bold :extend t)))
+        (((background mono))  ,(append mono-attrs  `(:weight ,bold :extend t))))))
 
      ;; Inverse variant
     (custom-declare-face
