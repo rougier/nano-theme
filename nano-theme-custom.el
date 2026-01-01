@@ -70,6 +70,11 @@ is not present, you can make a pull request to add it."
   :tag "Marginalia faces"
   :group 'nano-theme)
 
+(defgroup nano-theme-orderless nil
+  "Orderless faces"
+  :tag "Orderless faces"
+  :group 'nano-theme)
+
 (defgroup nano-theme-magit nil
   "Magit faces"
   :tag "Magit faces"

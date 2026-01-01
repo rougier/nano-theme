@@ -149,7 +149,7 @@
 ;; Version 0.3.0
 ;; - Added italic (Victor Mono)
 ;; - Less salient critical face
-;; - Added orderles, marginalia & corfu faces
+;; - Added orderless, marginalia & corfu faces
 
 ;; Version 0.2.1
 ;; - Added nano-modeline faces
@@ -415,7 +415,7 @@ This creates also the -i (inverse) -s (strong) and -h (highlight) variants."
      (intern (concat (symbol-name name) ""))
      '((t))
      "Base")
-    
+
     (custom-theme-set-faces
      theme
      `(,name
@@ -1234,6 +1234,16 @@ from all variables listed in `nano-theme-packages`."
   :type nano-theme-mapping-type
   :group 'nano-theme-corfu)
 
+(defcustom nano-theme-orderless
+  '((orderless-match-face-0 . nano-strong)
+    (orderless-match-face 1 . nano-strong)
+    (orderless-match-face 2 . nano-strong)
+    (orderless-match-face 3 . nano-strong))
+  "Orderless matching faces."
+  :tag "(orderless faces)"
+  :type nano-theme-mapping-type
+  :group 'nano-theme-orderless)
+
 (defcustom nano-theme-mu4e-headers
   '((mu4e-header-face             . nano-default)
     (mu4e-header-title-face       . nano-strong)
@@ -1885,6 +1895,9 @@ from all variables listed in `nano-theme-packages`."
     ;; Icomplete
     nano-theme-icomplete
 
+    ;; Orderless
+    nano-theme-orderless
+    
     ;; Markdown
     nano-theme-markdown-structure
     nano-theme-markdown-semantic
